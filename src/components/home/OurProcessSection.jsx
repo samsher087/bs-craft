@@ -42,7 +42,7 @@ export default function OurProcessSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-28 bg-[#0C0F17] text-sand-100 relative overflow-hidden border-y border-gold-500/15">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-[#0C0F17] text-sand-100 relative overflow-hidden border-y border-gold-500/15">
       {/* Ambient background lighting glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold-500/5 rounded-full blur-[170px] pointer-events-none" />
 
@@ -65,7 +65,7 @@ export default function OurProcessSection() {
         </div>
 
         {/* 6 Step Grid */}
-        <div className="mt-12 sm:mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="mt-7 sm:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {steps.map((st) => {
             const Icon = st.icon;
             return (

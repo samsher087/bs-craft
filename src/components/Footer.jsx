@@ -33,20 +33,20 @@ export default function Footer({ onOpenPolicy }) {
 
   return (
     <footer className="bg-charcoal-900 text-sand-100 border-t border-subtle-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 pb-8 sm:pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-8 sm:pb-10 border-b border-white/10">
+
           {/* Brand Identity & Tagline */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="flex items-center gap-3 group">
-              <img 
-                src="/assets/images/logo.png" 
-                alt="Being Samsher Crafting" 
-                className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-all duration-300 group-hover:scale-105 brightness-125 contrast-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]" 
+              <img
+                src="/assets/images/logo.png"
+                alt="Being Samsher Crafting"
+                className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-all duration-300 group-hover:scale-105 brightness-125 contrast-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]"
               />
               <div>
-                <span className="font-cinzel text-base font-bold tracking-wider block text-white">
-                  BEING SAMSHER CRAFTING
+                <span className="font-cormorant italic text-lg sm:text-xl transition-colors text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                  Being Samsher Crafting
                 </span>
                 <span className="text-[9px] tracking-[0.2em] uppercase font-sans text-gold-400 font-semibold block">
                   Architectural & Tajiya Studio
@@ -161,7 +161,7 @@ export default function Footer({ onOpenPolicy }) {
             </div>
 
             <div className="space-y-2.5 text-sand-300/85 font-sans">
-              <a 
+              <a
                 href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.fullAddress)}`}
                 target="_blank"
                 rel="noreferrer"
@@ -171,7 +171,7 @@ export default function Footer({ onOpenPolicy }) {
                 <span className="leading-relaxed">{siteConfig.fullAddress}</span>
               </a>
 
-              <a 
+              <a
                 href={`tel:${siteConfig.whatsappNumber}`}
                 className="flex items-center gap-2.5 hover:text-gold-300 transition-colors group"
               >
@@ -179,7 +179,7 @@ export default function Footer({ onOpenPolicy }) {
                 <span className="font-mono">{siteConfig.displayPhone}</span>
               </a>
 
-              <a 
+              <a
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-center gap-2.5 hover:text-gold-300 transition-colors group"
               >

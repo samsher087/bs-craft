@@ -47,11 +47,11 @@ export default function InstagramYouTubeSection() {
   };
 
   return (
-    <section className="py-24 sm:py-28 bg-sand-100 text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-sand-100 text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-subtle">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 sm:pb-7 border-b border-subtle">
           <div className="space-y-2">
             <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-gold-600 font-semibold">
               Live Studio Feeds
@@ -88,7 +88,7 @@ export default function InstagramYouTubeSection() {
         </div>
 
         {/* Visual Reels Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {socialReels.map((reel, idx) => (
             <div
               key={idx}

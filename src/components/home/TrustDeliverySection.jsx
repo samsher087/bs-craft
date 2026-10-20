@@ -11,11 +11,11 @@ export default function TrustDeliverySection() {
   ];
 
   return (
-    <section className="py-24 sm:py-28 bg-white text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-white text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-2 pb-12">
+        <div className="text-center max-w-2xl mx-auto space-y-2 pb-6 sm:pb-7">
           <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-gold-600 font-semibold">
             Integrity in Transit
           </span>

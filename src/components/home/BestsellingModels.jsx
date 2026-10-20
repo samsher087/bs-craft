@@ -20,7 +20,7 @@ export default function BestsellingModels() {
   };
 
   return (
-    <section className="pt-8 sm:pt-10 pb-14 sm:pb-16 bg-white text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-9 bg-white text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header - Centered */}

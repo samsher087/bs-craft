@@ -79,7 +79,7 @@ export default function ContactSection({ isPage = false }) {
   return (
     <section
       id="contact"
-      className={`relative overflow-hidden bg-[#0A0D14] text-sand-100 ${isPage ? 'py-16 sm:py-24' : 'py-24 sm:py-32 border-t border-gold-500/15'
+      className={`relative overflow-hidden bg-[#0A0D14] text-sand-100 ${isPage ? 'pt-8 sm:pt-12 pb-12 sm:pb-16' : 'pt-10 sm:pt-12 pb-14 sm:pb-16 border-t border-gold-500/15'
         }`}
     >
       {/* Ambient background lighting */}
@@ -111,7 +111,7 @@ export default function ContactSection({ isPage = false }) {
         </div>
 
         {/* Interactive Consultation Form & Studio Guarantees */}
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Left / Form: Quick Interactive Inquiry Builder */}
           <div className="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-gold-500/25 shadow-2xl backdrop-blur-md space-y-6">

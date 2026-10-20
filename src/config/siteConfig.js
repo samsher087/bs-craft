@@ -13,7 +13,7 @@ const DEFAULT_CONFIG = {
   email: "shamii087@gmail.com",
   instagramUrl: "https://instagram.com/beingsamsher",
   youtubeUrl: "https://youtube.com/@beingsamsher",
-  facebookUrl: "https://facebook.com/beingsamsher",
+  facebookUrl: "https://facebook.com/samshercrafts",
   adminPin: "samsher2026",
 
   // Hero Video Configuration - Official Samsher Crafting Video

@@ -50,11 +50,11 @@ export default function CraftsmanshipMotion() {
   ];
 
   return (
-    <section id="craft" className="py-24 sm:py-28 bg-charcoal-850 text-white border-b border-subtle-dark">
+    <section id="craft" className="pt-10 sm:pt-12 pb-8 sm:pb-10 bg-charcoal-850 text-white border-b border-subtle-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-subtle-dark">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-7 sm:pb-8 border-b border-subtle-dark">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-400/30 text-gold-300 text-[11px] font-mono uppercase tracking-[0.2em] font-semibold">
               <YoutubeIcon className="w-3.5 h-3.5 text-red-500" />
@@ -77,7 +77,7 @@ export default function CraftsmanshipMotion() {
         </div>
 
         {/* Video Reel Strip Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {motionStrips.map((strip) => (
             <div
               key={strip.id}

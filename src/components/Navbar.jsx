@@ -49,11 +49,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 text-white ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 text-white ${isScrolled
           ? 'bg-[#050B1B]/95 backdrop-blur-md border-b border-gold-500/20 shadow-2xl'
           : 'bg-[#050B1B]/85 sm:bg-charcoal-950/80 backdrop-blur-md border-b border-white/10 shadow-lg'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-2 transition-all duration-300">
 
@@ -170,11 +169,10 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
-                    location.pathname === link.path
+                  className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${location.pathname === link.path
                       ? 'bg-white/20 text-white font-bold'
                       : 'hover:bg-white/10 text-sand-100 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {link.name}
                 </Link>
