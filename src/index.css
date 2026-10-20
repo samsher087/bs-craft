@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-warm-white: #F7F6F2;
+    --text-primary: #151515;
+    --accent-gold: #C6A15B;
+    --accent-emerald: #124B3D;
+    --section-charcoal: #171918;
+    --border-subtle: rgba(21, 21, 21, 0.08);
+  }
+
+  body {
+    background-color: #F7F6F2;
+    color: #151515;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Sleek modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F7F6F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C6A15B;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #AA8541;
+  }
+}
+
+/* Subtle editorial borders & lines */
+.border-subtle {
+  border-color: rgba(21, 21, 21, 0.08);
+}
+
+.border-subtle-dark {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Restrained Gold Accents */
+.text-gold-accent {
+  color: #C6A15B;
+}
+
+.bg-gold-accent {
+  background-color: #C6A15B;
+}
+
+.border-gold-accent {
+  border-color: #C6A15B;
+}
+
+/* Explicit high-contrast utilities for Admin Portal & Modals */
+.text-luxury-charcoal {
+  color: #151515 !important;
+}
+
+.bg-warm-light {
+  background-color: #F7F6F2 !important;
+}
+
+/* Modal form inputs high contrast styling */
+.admin-modal-input {
+  background-color: #FFFFFF !important;
+  color: #151515 !important;
+  border: 1.5px solid #DDD5C7 !important;
+}
+
+.admin-modal-input:focus {
+  border-color: #C6A15B !important;
+  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.25) !important;
+}
+
+.admin-modal-input::placeholder {
+  color: #888888 !important;
+}
+
+/* Subtle Shimmer for High-End Accents */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #151515 0%, #C6A15B 60%, #8A682D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient-dark {
+  background: linear-gradient(135deg, #FAF6EE 0%, #E7D5B0 50%, #C6A15B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle micro-animations */
+@keyframes subtleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: subtleFadeIn 0.35s ease-out forwards;
+}
+
+/* Global Brand Logo Brightness & Crisp Vibrancy */
+img[src*="logo.png"],
+.brand-logo-bright {
+  filter: brightness(1.25) contrast(1.06) saturate(1.1);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+img[src*="logo.png"]:hover,
+.brand-logo-bright:hover {
+  filter: brightness(1.32) contrast(1.08) saturate(1.15);
+}
+
+/* Seamless Infinite Marquee Animation for News & Offers */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-smooth {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.animate-marquee-smooth:hover {
+  animation-play-state: paused;
+}
+
