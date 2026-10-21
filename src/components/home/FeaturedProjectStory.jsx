@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, MessageCircle, Ruler, Layers, Flame, ShieldCheck } from 'lucide-react';
 import { getProductBySlug } from '../../data/products';
-import { buildProductWhatsAppUrl } from '../../config/siteConfig';
+import { buildProductWhatsAppUrl, getSiteConfig } from '../../config/siteConfig';
 
 export default function FeaturedProjectStory() {
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
+
+  useEffect(() => {
+    const handleConfigChange = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleConfigChange);
+    return () => window.removeEventListener('site-config-updated', handleConfigChange);
+  }, []);
+
   const product = getProductBySlug('royal-blue-dome') || {
     name: "Royal Blue Dome with Golden Detailing",
     slug: "royal-blue-dome",
@@ -94,9 +102,15 @@ export default function FeaturedProjectStory() {
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-charcoal-900">
                 {product.name}
               </h3>
-              <div className="font-serif text-xl font-bold text-charcoal-900">
-                {product.priceDisplay}
-              </div>
+              {siteConfig.showPrices ? (
+                <div className="font-serif text-xl font-bold text-charcoal-900">
+                  {product.priceDisplay}
+                </div>
+              ) : (
+                <div className="font-serif text-base font-bold text-gold-700">
+                  Custom Quote on Request
+                </div>
+              )}
             </div>
 
             <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed font-sans">

@@ -11,7 +11,7 @@ import {
   X
 } from 'lucide-react';
 import { getProducts, categoriesList } from '../data/products';
-import { buildWhatsAppUrl } from '../config/siteConfig';
+import { buildWhatsAppUrl, getSiteConfig } from '../config/siteConfig';
 import LightboxModal from '../components/LightboxModal';
 
 export default function CreationsPage() {
@@ -23,12 +23,20 @@ export default function CreationsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedModelType, setSelectedModelType] = useState('All');
   const [lightboxData, setLightboxData] = useState(null);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleUpdate = () => setProducts(getProducts());
+    const handleUpdate = () => {
+      setProducts(getProducts());
+      setSiteConfig(getSiteConfig());
+    };
     window.addEventListener('products-updated', handleUpdate);
-    return () => window.removeEventListener('products-updated', handleUpdate);
+    window.addEventListener('site-config-updated', handleUpdate);
+    return () => {
+      window.removeEventListener('products-updated', handleUpdate);
+      window.removeEventListener('site-config-updated', handleUpdate);
+    };
   }, []);
 
   useEffect(() => {
@@ -267,8 +275,8 @@ export default function CreationsPage() {
                     <span className="text-[10px] font-medium text-emerald-300 bg-emerald-950/85 px-2 py-0.5 rounded-full border border-emerald-600/30">
                       {product.modelType}
                     </span>
-                    <span className="text-[10px] text-gold-300 bg-charcoal-950/90 px-2 py-0.5 rounded-full border border-gold-500/30">
-                      {product.priceDisplay || "Request a Quote"}
+                    <span className="text-[10px] text-white bg-charcoal-950/90 px-2.5 py-0.5 rounded-full border border-white/25 font-medium">
+                      {siteConfig.showPrices ? (product.priceDisplay || "Request a Quote") : "Pricing on request"}
                     </span>
                   </div>
                 </div>

@@ -633,6 +633,23 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
+            {!config.showPrices && (
+              <div className="p-3.5 rounded-2xl bg-amber-50/80 border border-amber-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-amber-950">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-amber-600 animate-pulse shrink-0" />
+                  <span>
+                    <strong>Prices are currently hidden on the public website.</strong> Visitors see <em>"Price on Request"</em> across all catalogue cards and pages.
+                  </span>
+                </div>
+                <button
+                  onClick={() => setActiveTab('settings')}
+                  className="px-3.5 py-1.5 rounded-xl bg-amber-900 hover:bg-amber-950 text-white text-[11px] font-semibold transition-colors cursor-pointer self-start sm:self-auto shrink-0 shadow-xs"
+                >
+                  Toggle Price Visibility in Settings →
+                </button>
+              </div>
+            )}
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {filteredProducts.map((p) => (
                 <div
@@ -653,8 +670,13 @@ export default function AdminDashboardPage() {
                     </div>
 
                     <div className="absolute bottom-2 right-2">
-                      <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-sm text-xs font-bold text-emerald-900 border border-subtle shadow-sm">
-                        {p.isStartingPrice ? 'Starting at ' : ''}₹{p.price?.toLocaleString('en-IN') || 'Quote'}
+                      <span className="px-2.5 py-1 rounded-md bg-white/95 backdrop-blur-sm text-xs font-bold text-emerald-900 border border-subtle shadow-sm flex items-center gap-1.5">
+                        <span>{p.isStartingPrice ? 'Starting at ' : ''}₹{p.price?.toLocaleString('en-IN') || 'Quote'}</span>
+                        {!config.showPrices && (
+                          <span className="text-[9px] font-mono text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded font-bold">
+                            Hidden on Site
+                          </span>
+                        )}
                       </span>
                     </div>
                   </div>
@@ -706,7 +728,74 @@ export default function AdminDashboardPage() {
                 </div>
               )}
 
-              <div className="space-y-4 text-xs">
+              <div className="space-y-5 text-xs">
+                {/* Product Pricing Visibility Setting */}
+                <div className="p-4 sm:p-5 rounded-2xl border-2 border-gold-300 bg-gold-50/60 shadow-xs space-y-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <span className="font-bold text-luxury-charcoal text-sm block">
+                        Public Product Pricing Display
+                      </span>
+                      <span className="text-[11px] text-luxury-charcoal/70">
+                        Choose whether price figures (₹) are shown to visitors or hidden behind "Price on Request".
+                      </span>
+                    </div>
+                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider self-start sm:self-auto ${
+                      config.showPrices
+                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                        : 'bg-amber-100 text-amber-900 border border-amber-300'
+                    }`}>
+                      {config.showPrices ? '● Prices Visible' : '● Prices Hidden'}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => setConfig({ ...config, showPrices: false })}
+                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${
+                        !config.showPrices
+                          ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-gold-500/30'
+                          : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          !config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
+                        }`}>
+                          {!config.showPrices && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                        </div>
+                        <span className="text-xs font-bold text-luxury-charcoal">Hide Prices (Active)</span>
+                      </div>
+                      <p className="text-[11px] text-luxury-charcoal/70 mt-1.5 pl-6 font-normal leading-relaxed">
+                        Public visitors see <strong>"Price on Request"</strong> on all cards & pages. Directs enquiries to WhatsApp.
+                      </p>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setConfig({ ...config, showPrices: true })}
+                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${
+                        config.showPrices
+                          ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-emerald-500/30'
+                          : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
+                        }`}>
+                          {config.showPrices && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                        </div>
+                        <span className="text-xs font-bold text-luxury-charcoal">Show Prices Publicly</span>
+                      </div>
+                      <p className="text-[11px] text-luxury-charcoal/70 mt-1.5 pl-6 font-normal leading-relaxed">
+                        Shows starting ₹ prices on all product cards, scale dropdowns, and details pages.
+                      </p>
+                    </button>
+                  </div>
+                </div>
+
                 <div>
                   <label className="block font-semibold text-luxury-charcoal uppercase tracking-wider mb-1">
                     Hero Background Video URL

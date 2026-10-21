@@ -16,6 +16,9 @@ const DEFAULT_CONFIG = {
   facebookUrl: "https://facebook.com/samshercrafts",
   adminPin: "samsher2026",
 
+  // Pricing Visibility Configuration - Hidden by default per studio policy (can be toggled in Admin Dashboard)
+  showPrices: false,
+
   // Hero Video Configuration - Official Samsher Crafting Video
   heroVideoUrl: "https://youtu.be/vKihid2cNvs?si=ac2rruwVnGfnaNx_",
   heroPosterImage: "/assets/images/hero_royal_tajiya.jpg",
@@ -53,6 +56,12 @@ export const getSiteConfig = () => {
         modified = true;
       }
 
+      // Default showPrices to false if not explicitly set
+      if (parsed.showPrices === undefined) {
+        parsed.showPrices = false;
+        modified = true;
+      }
+
       if (modified) {
         localStorage.setItem('bsc_site_config', JSON.stringify(parsed));
       }
@@ -84,11 +93,14 @@ export const buildWhatsAppUrl = (customMessage = "") => {
 
 export const buildProductWhatsAppUrl = ({ productName, priceDisplay, selectedSize, productUrl }) => {
   const config = getSiteConfig();
+  const pricingLine = (config.showPrices && priceDisplay)
+    ? `Product price: ${priceDisplay}.\n`
+    : `Please share the price quotation, customization options, and delivery timeline.\n`;
+
   const msg =
     `Hello Being Samsher Crafting! I am interested in ${productName}.
-Product price: ${priceDisplay || 'Request a Quote'}.
-Selected size: ${selectedSize || 'Standard'}.
-Please confirm availability, customization, and delivery charges.
+${pricingLine}Selected size: ${selectedSize || 'Standard'}.
+Please confirm availability and delivery charges.
 ${productUrl ? `Product Link: ${productUrl}` : ''}`.trim();
 
   return `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(msg)}`;

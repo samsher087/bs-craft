@@ -17,7 +17,7 @@ import {
   Video
 } from 'lucide-react';
 import { getProductBySlug, getProducts } from '../data/products';
-import { buildWhatsAppUrl } from '../config/siteConfig';
+import { buildWhatsAppUrl, getSiteConfig } from '../config/siteConfig';
 import LightboxModal from '../components/LightboxModal';
 
 export default function ProjectDetailPage() {
@@ -25,12 +25,16 @@ export default function ProjectDetailPage() {
   const navigate = useNavigate();
   const [copied, setCopied] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 
   const product = getProductBySlug(slug);
   const allProducts = getProducts();
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const handleUpdate = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleUpdate);
+    return () => window.removeEventListener('site-config-updated', handleUpdate);
   }, [slug]);
 
   if (!product) {
@@ -181,8 +185,8 @@ export default function ProjectDetailPage() {
                 <span className="text-[11px] uppercase tracking-wider text-warm-white/60 block font-mono">
                   Pricing
                 </span>
-                <span className="font-serif text-2xl font-bold text-gold-300">
-                  {product.priceDisplay || "Request a Quote"}
+                <span className="font-serif text-2xl font-bold text-white">
+                  {siteConfig.showPrices ? (product.priceDisplay || "Request a Quote") : "Pricing on request"}
                 </span>
               </div>
               <span className="text-xs text-warm-white/70 font-sans text-right max-w-[160px]">

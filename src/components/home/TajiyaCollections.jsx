@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Eye, ArrowUpRight, Sparkles, X, ShieldCheck } from 'lucide-react';
 import { getTajiyaProducts } from '../../data/products';
-import { buildProductWhatsAppUrl } from '../../config/siteConfig';
+import { buildProductWhatsAppUrl, getSiteConfig } from '../../config/siteConfig';
 
 export default function TajiyaCollections() {
   const tajiyas = getTajiyaProducts();
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
+
+  useEffect(() => {
+    const handleConfigChange = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleConfigChange);
+    return () => window.removeEventListener('site-config-updated', handleConfigChange);
+  }, []);
 
   const handleWhatsAppOrder = (e, product) => {
     e.stopPropagation();
@@ -81,32 +88,40 @@ export default function TajiyaCollections() {
               {/* Bottom Floating Glass Card - Transparent to keep inner image visible */}
               <div className="relative z-10 m-2.5 sm:m-3 p-3 sm:p-3.5 rounded-2xl bg-black/20 hover:bg-black/30 backdrop-blur-[2px] border border-white/20 shadow-lg space-y-2 transition-all">
                 {/* Pricing Block Over Image */}
-                <div className="flex items-baseline justify-between">
-                  <div className="space-y-0.5">
-                    <span className="text-[10px] text-sand-100 uppercase tracking-wider block font-sans drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] font-semibold">
-                      Starting at
-                    </span>
-                    <div className="flex items-baseline gap-1.5 sm:gap-2">
-                      <div className="flex items-baseline">
-                        <span className="font-serif text-lg sm:text-xl font-bold text-gold-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] mr-0.5">
-                          ₹
-                        </span>
-                        <span className="font-serif text-xl sm:text-2xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] tracking-tight">
-                          {product.price.toLocaleString('en-IN')}
-                        </span>
+                {siteConfig.showPrices ? (
+                  <div className="flex items-baseline justify-between">
+                    <div className="space-y-0.5">
+                      <span className="text-[10px] text-sand-100 uppercase tracking-wider block font-sans drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] font-semibold">
+                        Starting at
+                      </span>
+                      <div className="flex items-baseline gap-1.5 sm:gap-2">
+                        <div className="flex items-baseline">
+                          <span className="font-serif text-lg sm:text-xl font-bold text-gold-300 drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] mr-0.5">
+                            ₹
+                          </span>
+                          <span className="font-serif text-xl sm:text-2xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.95)] tracking-tight">
+                            {product.price.toLocaleString('en-IN')}
+                          </span>
+                        </div>
+                        {product.originalPrice && (
+                          <span className="text-xs text-sand-200/80 line-through drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+                            ₹{product.originalPrice.toLocaleString('en-IN')}
+                          </span>
+                        )}
                       </div>
-                      {product.originalPrice && (
-                        <span className="text-xs text-sand-200/80 line-through drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
-                          ₹{product.originalPrice.toLocaleString('en-IN')}
-                        </span>
-                      )}
                     </div>
-                  </div>
 
-                  <span className="text-[10px] text-gold-200 bg-black/30 px-2.5 py-0.5 rounded-full font-mono font-medium border border-gold-400/40 backdrop-blur-xs">
-                    Customizable
-                  </span>
-                </div>
+                    <span className="text-[10px] text-gold-200 bg-black/30 px-2.5 py-0.5 rounded-full font-mono font-medium border border-gold-400/40 backdrop-blur-xs">
+                      Customizable
+                    </span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center py-1">
+                    <span className="font-serif text-base sm:text-lg font-bold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] tracking-wide text-center">
+                      Pricing on request
+                    </span>
+                  </div>
+                )}
 
                 {/* Action Buttons Over Image */}
                 <div className="grid grid-cols-2 gap-2 pt-0.5">
@@ -174,12 +189,20 @@ export default function TajiyaCollections() {
               <div className="pt-4 border-t border-subtle space-y-4">
                 <div>
                   <span className="text-xs text-charcoal-500 block">Pricing</span>
-                  <span className="font-serif text-2xl font-bold text-charcoal-900">
-                    ₹{quickViewProduct.price.toLocaleString('en-IN')}
-                  </span>
-                  {quickViewProduct.originalPrice && (
-                    <span className="text-xs text-charcoal-400 line-through ml-2">
-                      ₹{quickViewProduct.originalPrice.toLocaleString('en-IN')}
+                  {siteConfig.showPrices ? (
+                    <>
+                      <span className="font-serif text-2xl font-bold text-charcoal-900">
+                        ₹{quickViewProduct.price.toLocaleString('en-IN')}
+                      </span>
+                      {quickViewProduct.originalPrice && (
+                        <span className="text-xs text-charcoal-400 line-through ml-2">
+                          ₹{quickViewProduct.originalPrice.toLocaleString('en-IN')}
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <span className="font-serif text-lg font-bold text-charcoal-900">
+                      Pricing on request
                     </span>
                   )}
                 </div>

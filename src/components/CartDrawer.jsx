@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, MessageCircle, ShieldCheck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import { buildWhatsAppUrl } from '../config/siteConfig';
+import { buildWhatsAppUrl, getSiteConfig } from '../config/siteConfig';
 
 export default function CartDrawer() {
   const { cartItems, isCartOpen, closeCart, removeFromCart, updateQuantity, subtotal, totalItemsCount } = useCart();
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
+
+  useEffect(() => {
+    const handleUpdate = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleUpdate);
+    return () => window.removeEventListener('site-config-updated', handleUpdate);
+  }, []);
 
   if (!isCartOpen) return null;
 
@@ -13,14 +20,21 @@ export default function CartDrawer() {
     if (cartItems.length === 0) return;
 
     let itemsSummary = cartItems.map((item, idx) => {
+      const priceText = siteConfig.showPrices
+        ? `\n   • Qty: ${item.quantity} × ₹${item.unitPrice.toLocaleString('en-IN')}\n   • Item Subtotal: ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}`
+        : `\n   • Qty: ${item.quantity} (Quotation on Request)`;
+
       return (
         `${idx + 1}. *${item.name}*\n` +
         `   • Size: ${item.selectedSize}\n` +
-        `   • Lighting: ${item.selectedLighting}\n` +
-        `   • Qty: ${item.quantity} × ₹${item.unitPrice.toLocaleString('en-IN')}\n` +
-        `   • Item Subtotal: ₹${(item.unitPrice * item.quantity).toLocaleString('en-IN')}`
+        `   • Lighting: ${item.selectedLighting}` +
+        priceText
       );
     }).join('\n\n');
+
+    const subtotalText = siteConfig.showPrices
+      ? `*Cart Estimated Subtotal: ₹${subtotal.toLocaleString('en-IN')}*`
+      : `*Quotation: Price on Request (Pending Size & Delivery Destination)*`;
 
     const message = 
 `Hello Being Samsher Crafting!
@@ -29,7 +43,7 @@ I would like to place an order enquiry for the following models:
 ${itemsSummary}
 
 ---------------------------------------
-*Cart Estimated Subtotal: ₹${subtotal.toLocaleString('en-IN')}*
+${subtotalText}
 *(Shipping & packaging charges to be confirmed per destination)*
 
 Please share confirmation, production timeline, and bank/dispatch details.
@@ -125,9 +139,15 @@ Please share confirmation, production timeline, and bank/dispatch details.
                     </div>
 
                     <div className="flex items-center justify-between pt-2 mt-1 border-t border-subtle">
-                      <span className="font-serif text-xs font-bold text-charcoal-900">
-                        ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
-                      </span>
+                      {siteConfig.showPrices ? (
+                        <span className="font-serif text-xs font-bold text-charcoal-900">
+                          ₹{(item.unitPrice * item.quantity).toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[11px] font-semibold text-charcoal-700">
+                          Quote on Request
+                        </span>
+                      )}
 
                       {/* Quantity Selector */}
                       <div className="flex items-center gap-1.5 border border-subtle rounded-lg bg-white px-1.5 py-0.5">
@@ -157,9 +177,11 @@ Please share confirmation, production timeline, and bank/dispatch details.
             <div className="p-5 border-t border-subtle bg-sand-50 space-y-3">
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-charcoal-600 font-medium">Estimated Subtotal</span>
+                  <span className="text-charcoal-600 font-medium">
+                    {siteConfig.showPrices ? "Estimated Subtotal" : "Quotation Subtotal"}
+                  </span>
                   <span className="font-serif text-lg font-bold text-charcoal-900">
-                    ₹{subtotal.toLocaleString('en-IN')}
+                    {siteConfig.showPrices ? `₹${subtotal.toLocaleString('en-IN')}` : "Quote on Request"}
                   </span>
                 </div>
                 <div className="flex items-start gap-1.5 text-[11px] text-charcoal-500 pt-1">

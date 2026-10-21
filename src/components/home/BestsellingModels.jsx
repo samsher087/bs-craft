@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MessageCircle, Eye, ArrowUpRight, X, Sparkles } from 'lucide-react';
 import { getProducts } from '../../data/products';
-import { buildProductWhatsAppUrl } from '../../config/siteConfig';
+import { buildProductWhatsAppUrl, getSiteConfig } from '../../config/siteConfig';
 
 export default function BestsellingModels() {
   const products = getProducts().filter(p => p.featured).slice(0, 16);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
+
+  useEffect(() => {
+    const handleConfigChange = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleConfigChange);
+    return () => window.removeEventListener('site-config-updated', handleConfigChange);
+  }, []);
 
   const handleWhatsAppOrder = (e, product) => {
     e.stopPropagation();
@@ -96,12 +103,20 @@ export default function BestsellingModels() {
                 <div className="pt-3 border-t border-subtle space-y-3">
                   <div className="flex items-baseline justify-between">
                     <div>
-                      <span className="font-serif text-lg font-bold text-charcoal-900">
-                        {product.priceDisplay || `₹${product.price.toLocaleString('en-IN')}`}
-                      </span>
-                      {product.originalPrice && (
-                        <span className="text-xs text-charcoal-400 line-through ml-2">
-                          ₹{product.originalPrice.toLocaleString('en-IN')}
+                      {siteConfig.showPrices ? (
+                        <>
+                          <span className="font-serif text-lg font-bold text-charcoal-900">
+                            {product.priceDisplay || `₹${product.price.toLocaleString('en-IN')}`}
+                          </span>
+                          {product.originalPrice && (
+                            <span className="text-xs text-charcoal-400 line-through ml-2">
+                              ₹{product.originalPrice.toLocaleString('en-IN')}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <span className="font-serif text-sm font-bold text-charcoal-800">
+                          Pricing on request
                         </span>
                       )}
                     </div>
@@ -163,9 +178,15 @@ export default function BestsellingModels() {
                 <h3 className="font-serif text-xl font-bold text-charcoal-900">
                   {quickViewProduct.name}
                 </h3>
-                <div className="font-serif text-lg font-bold text-charcoal-900">
-                  {quickViewProduct.priceDisplay || `₹${quickViewProduct.price.toLocaleString('en-IN')}`}
-                </div>
+                {siteConfig.showPrices ? (
+                  <div className="font-serif text-lg font-bold text-charcoal-900">
+                    {quickViewProduct.priceDisplay || `₹${quickViewProduct.price.toLocaleString('en-IN')}`}
+                  </div>
+                ) : (
+                  <div className="font-serif text-base font-bold text-charcoal-900">
+                    Pricing on request
+                  </div>
+                )}
                 <p className="text-xs text-charcoal-600 leading-relaxed">
                   {quickViewProduct.shortDesc}
                 </p>

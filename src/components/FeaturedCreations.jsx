@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, MessageCircle, ArrowUpRight, Eye } from 'lucide-react';
 import { getProducts } from '../data/products';
-import { buildWhatsAppUrl } from '../config/siteConfig';
+import { buildWhatsAppUrl, getSiteConfig } from '../config/siteConfig';
 
 export default function FeaturedCreations() {
   const allProducts = getProducts();
   const featured = allProducts.filter(p => p.featured).slice(0, 8);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
+
+  useEffect(() => {
+    const handleConfigChange = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleConfigChange);
+    return () => window.removeEventListener('site-config-updated', handleConfigChange);
+  }, []);
 
   const handleWhatsAppEnquiry = (e, product) => {
     e.stopPropagation();
@@ -84,8 +91,8 @@ export default function FeaturedCreations() {
                   <span className="text-[11px] font-medium text-emerald-300 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-600/30">
                     {product.modelType || product.category}
                   </span>
-                  <span className="text-[10px] text-gold-300 bg-charcoal-950/80 px-2 py-0.5 rounded-full border border-gold-500/30">
-                    {product.priceDisplay || "Request a Quote"}
+                  <span className="text-[10px] text-white bg-charcoal-950/85 px-2.5 py-0.5 rounded-full border border-white/25 font-medium">
+                    {siteConfig.showPrices ? (product.priceDisplay || "Request a Quote") : "Pricing on request"}
                   </span>
                 </div>
               </Link>

@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import { YoutubeIcon } from '../components/SocialIcons';
 import { getProductBySlug, getProducts } from '../data/products';
-import { buildProductWhatsAppUrl, buildWhatsAppUrl, toYouTubeEmbedUrl, toYouTubeWatchUrl } from '../config/siteConfig';
+import { buildProductWhatsAppUrl, buildWhatsAppUrl, getSiteConfig, toYouTubeEmbedUrl, toYouTubeWatchUrl } from '../config/siteConfig';
 import { useCart } from '../context/CartContext';
 import LightboxModal from '../components/LightboxModal';
 
@@ -43,15 +43,19 @@ export default function ProductDetailPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [addedToast, setAddedToast] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    const handleConfigChange = () => setSiteConfig(getSiteConfig());
+    window.addEventListener('site-config-updated', handleConfigChange);
     if (product) {
       setSelectedImage(product.image);
       setSelectedSizeIndex(0);
       setSelectedLightingIndex(0);
       setQuantity(1);
     }
+    return () => window.removeEventListener('site-config-updated', handleConfigChange);
   }, [slug]);
 
   if (!product) {
@@ -266,26 +270,47 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Dynamic Price Display */}
-            <div className="p-4 rounded-xl bg-white border border-subtle flex items-baseline justify-between">
-              <div>
-                <span className="text-[11px] text-charcoal-500 uppercase tracking-wider block font-mono">
-                  Calculated Price (INR)
-                </span>
-                <span className="font-serif text-3xl font-bold text-charcoal-900">
-                  ₹{totalPrice.toLocaleString('en-IN')}
-                </span>
-                {quantity > 1 && (
-                  <span className="text-xs text-charcoal-500 block">
-                    (₹{unitPrice.toLocaleString('en-IN')} per unit × {quantity})
+            {siteConfig.showPrices ? (
+              <div className="p-4 rounded-xl bg-white border border-subtle flex items-baseline justify-between">
+                <div>
+                  <span className="text-[11px] text-charcoal-500 uppercase tracking-wider block font-mono">
+                    Calculated Price (INR)
                   </span>
-                )}
-              </div>
+                  <span className="font-serif text-3xl font-bold text-charcoal-900">
+                    ₹{totalPrice.toLocaleString('en-IN')}
+                  </span>
+                  {quantity > 1 && (
+                    <span className="text-xs text-charcoal-500 block">
+                      (₹{unitPrice.toLocaleString('en-IN')} per unit × {quantity})
+                    </span>
+                  )}
+                </div>
 
-              <div className="text-right text-[11px] text-charcoal-500 font-sans">
-                <span>Shipping calculated</span> <br />
-                <span>at dispatch confirmation</span>
+                <div className="text-right text-[11px] text-charcoal-500 font-sans">
+                  <span>Shipping calculated</span> <br />
+                  <span>at dispatch confirmation</span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="p-4 rounded-xl bg-white border border-subtle flex items-baseline justify-between">
+                <div>
+                  <span className="text-[11px] text-charcoal-500 uppercase tracking-wider block font-mono">
+                    Pricing & Quotation
+                  </span>
+                  <span className="font-serif text-2xl font-bold text-charcoal-900">
+                    Quote on Request
+                  </span>
+                  <span className="text-xs text-charcoal-500 block mt-0.5">
+                    Handcrafted according to your selected scale, lighting & delivery location
+                  </span>
+                </div>
+
+                <div className="text-right text-[11px] text-emerald-800 font-sans font-medium">
+                  <span>Free Quotation</span> <br />
+                  <span>via WhatsApp</span>
+                </div>
+              </div>
+            )}
 
             {/* Short Description */}
             <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed font-sans">
@@ -314,9 +339,15 @@ export default function ProductDetailPage() {
                         <span className="block font-medium">{opt.name}</span>
                         <span className="text-[11px] text-charcoal-500 font-normal">Dimensions: {opt.dimensions}</span>
                       </div>
-                      <span className="font-serif font-bold text-charcoal-900">
-                        ₹{opt.price.toLocaleString('en-IN')}
-                      </span>
+                      {siteConfig.showPrices ? (
+                        <span className="font-serif font-bold text-charcoal-900">
+                          ₹{opt.price.toLocaleString('en-IN')}
+                        </span>
+                      ) : (
+                        <span className="text-[11px] text-charcoal-600 font-medium font-mono">
+                          Scale Option
+                        </span>
+                      )}
                     </button>
                   ))}
                 </div>
@@ -343,7 +374,9 @@ export default function ProductDetailPage() {
                     >
                       <span>{opt.name}</span>
                       <span className="font-mono text-charcoal-600">
-                        {opt.price > 0 ? `+₹${opt.price.toLocaleString('en-IN')}` : 'Included'}
+                        {siteConfig.showPrices
+                          ? (opt.price > 0 ? `+₹${opt.price.toLocaleString('en-IN')}` : 'Included')
+                          : (opt.price > 0 ? 'Custom Setup' : 'Standard')}
                       </span>
                     </button>
                   ))}
@@ -380,7 +413,7 @@ export default function ProductDetailPage() {
                 className="w-full py-4 rounded-full bg-charcoal-900 hover:bg-charcoal-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
               >
                 <ShoppingBag className="w-4 h-4 text-gold-400" />
-                <span>Add to Selection Bag (₹{totalPrice.toLocaleString('en-IN')})</span>
+                <span>Add to Selection Bag {siteConfig.showPrices ? `(₹${totalPrice.toLocaleString('en-IN')})` : ''}</span>
               </button>
 
               <button
@@ -388,7 +421,7 @@ export default function ProductDetailPage() {
                 className="w-full py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>Order via WhatsApp Now</span>
+                <span>{siteConfig.showPrices ? "Order via WhatsApp Now" : "Request Quote via WhatsApp"}</span>
               </button>
 
               <button
@@ -487,7 +520,7 @@ export default function ProductDetailPage() {
                     {rel.name}
                   </h4>
                   <p className="font-serif text-xs font-bold text-charcoal-700 mt-1">
-                    {rel.priceDisplay || `₹${rel.price.toLocaleString('en-IN')}`}
+                    {siteConfig.showPrices ? (rel.priceDisplay || `₹${rel.price.toLocaleString('en-IN')}`) : "Pricing on request"}
                   </p>
                 </Link>
               ))}

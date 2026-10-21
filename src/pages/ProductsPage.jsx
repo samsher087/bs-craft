@@ -12,7 +12,7 @@ import {
   Maximize2
 } from 'lucide-react';
 import { getProducts, productCategories } from '../data/products';
-import { buildProductWhatsAppUrl } from '../config/siteConfig';
+import { buildProductWhatsAppUrl, getSiteConfig } from '../config/siteConfig';
 import LightboxModal from '../components/LightboxModal';
 
 export default function ProductsPage() {
@@ -27,12 +27,20 @@ export default function ProductsPage() {
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [lightboxData, setLightboxData] = useState(null);
   const [visibleCount, setVisibleCount] = useState(8);
+  const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const handleUpdate = () => setProducts(getProducts());
+    const handleUpdate = () => {
+      setProducts(getProducts());
+      setSiteConfig(getSiteConfig());
+    };
     window.addEventListener('products-updated', handleUpdate);
-    return () => window.removeEventListener('products-updated', handleUpdate);
+    window.addEventListener('site-config-updated', handleUpdate);
+    return () => {
+      window.removeEventListener('products-updated', handleUpdate);
+      window.removeEventListener('site-config-updated', handleUpdate);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,14 +67,18 @@ export default function ProductsPage() {
                           prod.shortDesc.toLowerCase().includes(searchQuery.toLowerCase());
     
     let matchesPrice = true;
-    if (priceFilter === 'under-20k') matchesPrice = prod.price < 20000;
-    if (priceFilter === '20k-35k') matchesPrice = prod.price >= 20000 && prod.price <= 35000;
-    if (priceFilter === 'above-35k') matchesPrice = prod.price > 35000;
+    if (siteConfig.showPrices) {
+      if (priceFilter === 'under-20k') matchesPrice = prod.price < 20000;
+      if (priceFilter === '20k-35k') matchesPrice = prod.price >= 20000 && prod.price <= 35000;
+      if (priceFilter === 'above-35k') matchesPrice = prod.price > 35000;
+    }
 
     return matchesCategory && matchesSearch && matchesPrice;
   }).sort((a, b) => {
-    if (sortBy === 'price-asc') return a.price - b.price;
-    if (sortBy === 'price-desc') return b.price - a.price;
+    if (siteConfig.showPrices) {
+      if (sortBy === 'price-asc') return a.price - b.price;
+      if (sortBy === 'price-desc') return b.price - a.price;
+    }
     if (sortBy === 'name') return a.name.localeCompare(b.name);
     return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
   });
@@ -113,13 +125,15 @@ export default function ProductsPage() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-subtle">
             <div className="space-y-2">
               <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-gold-600 font-semibold">
-                Catalogue & Individual Pricing
+                {siteConfig.showPrices ? "Catalogue & Individual Pricing" : "Catalogue & Bespoke Models"}
               </span>
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-charcoal-900">
                 Architectural <span className="font-cormorant italic font-normal text-gold-600">Creations</span>
               </h1>
               <p className="text-xs sm:text-sm text-charcoal-600 max-w-xl font-sans">
-                Explore individual models with transparent sample pricing, full specifications, dimensions, and direct WhatsApp customization options.
+                {siteConfig.showPrices
+                  ? "Explore individual models with transparent sample pricing, full specifications, dimensions, and direct WhatsApp customization options."
+                  : "Explore individual models with full specifications, dimensions, craftsmanship details, and direct WhatsApp custom order options."}
               </p>
             </div>
 
@@ -156,20 +170,22 @@ export default function ProductsPage() {
             {/* Price Filter & Sorting Dropdowns */}
             <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
               
-              {/* Price Filter */}
-              <div className="flex items-center gap-1.5 text-xs text-charcoal-600">
-                <span className="font-medium">Price:</span>
-                <select
-                  value={priceFilter}
-                  onChange={(e) => setPriceFilter(e.target.value)}
-                  className="px-3 py-1.5 rounded-lg bg-sand-50 border border-subtle text-xs text-charcoal-800 focus:outline-none focus:border-charcoal-800"
-                >
-                  <option value="all">All Prices</option>
-                  <option value="under-20k">Under ₹20,000</option>
-                  <option value="20k-35k">₹20,000 – ₹35,000</option>
-                  <option value="above-35k">Above ₹35,000</option>
-                </select>
-              </div>
+              {/* Price Filter - Only when prices are visible */}
+              {siteConfig.showPrices && (
+                <div className="flex items-center gap-1.5 text-xs text-charcoal-600">
+                  <span className="font-medium">Price:</span>
+                  <select
+                    value={priceFilter}
+                    onChange={(e) => setPriceFilter(e.target.value)}
+                    className="px-3 py-1.5 rounded-lg bg-sand-50 border border-subtle text-xs text-charcoal-800 focus:outline-none focus:border-charcoal-800"
+                  >
+                    <option value="all">All Prices</option>
+                    <option value="under-20k">Under ₹20,000</option>
+                    <option value="20k-35k">₹20,000 – ₹35,000</option>
+                    <option value="above-35k">Above ₹35,000</option>
+                  </select>
+                </div>
+              )}
 
               {/* Sort By */}
               <div className="flex items-center gap-1.5 text-xs text-charcoal-600">
@@ -181,8 +197,12 @@ export default function ProductsPage() {
                   className="px-3 py-1.5 rounded-lg bg-sand-50 border border-subtle text-xs text-charcoal-800 focus:outline-none focus:border-charcoal-800"
                 >
                   <option value="featured">Featured First</option>
-                  <option value="price-asc">Price: Low to High</option>
-                  <option value="price-desc">Price: High to Low</option>
+                  {siteConfig.showPrices && (
+                    <>
+                      <option value="price-asc">Price: Low to High</option>
+                      <option value="price-desc">Price: High to Low</option>
+                    </>
+                  )}
                   <option value="name">Model Name</option>
                 </select>
               </div>
@@ -306,12 +326,20 @@ export default function ProductsPage() {
                   <div className="pt-3 border-t border-subtle space-y-3">
                     <div className="flex items-baseline justify-between">
                       <div>
-                        <span className="font-serif text-lg font-bold text-charcoal-900">
-                          {product.priceDisplay || `₹${product.price.toLocaleString('en-IN')}`}
-                        </span>
-                        {product.originalPrice && (
-                          <span className="text-xs text-charcoal-400 line-through ml-2">
-                            ₹{product.originalPrice.toLocaleString('en-IN')}
+                        {siteConfig.showPrices ? (
+                          <>
+                            <span className="font-serif text-lg font-bold text-charcoal-900">
+                              {product.priceDisplay || `₹${product.price.toLocaleString('en-IN')}`}
+                            </span>
+                            {product.originalPrice && (
+                              <span className="text-xs text-charcoal-400 line-through ml-2">
+                                ₹{product.originalPrice.toLocaleString('en-IN')}
+                              </span>
+                            )}
+                          </>
+                        ) : (
+                          <span className="font-serif text-sm font-bold text-charcoal-800">
+                            Pricing on request
                           </span>
                         )}
                       </div>
@@ -386,9 +414,15 @@ export default function ProductsPage() {
                 <h3 className="font-serif text-xl font-bold text-charcoal-900">
                   {quickViewProduct.name}
                 </h3>
-                <div className="font-serif text-lg font-bold text-charcoal-900">
-                  {quickViewProduct.priceDisplay || `₹${quickViewProduct.price.toLocaleString('en-IN')}`}
-                </div>
+                {siteConfig.showPrices ? (
+                  <div className="font-serif text-lg font-bold text-charcoal-900">
+                    {quickViewProduct.priceDisplay || `₹${quickViewProduct.price.toLocaleString('en-IN')}`}
+                  </div>
+                ) : (
+                  <div className="font-serif text-base font-bold text-charcoal-900">
+                    Pricing on request
+                  </div>
+                )}
                 <p className="text-xs text-charcoal-600 leading-relaxed">
                   {quickViewProduct.shortDesc}
                 </p>
