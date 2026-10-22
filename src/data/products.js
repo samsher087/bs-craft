@@ -181,6 +181,178 @@ export const initialProducts = [
     ]
   },
   {
+    id: "prod-minar-emerald-green-glitter",
+    slug: "emerald-green-glitter-royal-minar",
+    sku: "BSC-MNR-EG01",
+    name: "Emerald Green Glitter Royal Minar",
+    category: "Minar",
+    price: 3500,
+    priceDisplay: "Starting at ₹3,500",
+    isStartingPrice: true,
+    originalPrice: 4500,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Bestseller",
+    shortDesc: "Slender architectural minarets featuring sparkling emerald green glitter panels, double observation balconies with diamond lattice railings, and white dome finials.",
+    fullDesc: "Masterfully handcrafted Islamic minaret models constructed from high-density virgin architectural thermocol and rich emerald green glitter sheeting. Features multi-tier observation balconies with intricate geometric diamond cutwork balustrades, scalloped arched niches, gold ribbon accents, and sculpted white onion dome pinnacles with green banded rings. Perfect for Tajiya staging, mosque scale replicas, Mawlid decor, and Islamic architectural centerpieces.",
+    dimensions: "Height: 3 ft to 8 ft | Base Diameter: 6 to 12 inches",
+    height: "3 to 8 Feet",
+    width: "8 inches",
+    depth: "8 inches",
+    material: "High-density architectural thermocol, emerald green glitter sheeting, gold ribbon trim, sculpted finials",
+    colorFinish: "Emerald Green Glitter, Gilded Gold Bands & Pristine White Carved Balustrades",
+    lighting: "Compatible with external spotlights and internal LED lantern channels",
+    craftTime: "In Studio Stock / 3–5 Days for Custom Heights",
+    packaging: "Heavy-duty shockproof protective casing with foam support",
+    image: "/assets/images/minar_emerald_green_glitter.jpg",
+    imagePosition: "object-top",
+    images: [
+      "/assets/images/minar_emerald_green_glitter.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "https://www.youtube.com/watch?v=bzv2S55df8c",
+    featured: true,
+    sizeOptions: [
+      { name: "Pair of 2 Minars (3.5 ft Height)", dimensions: "42 in Height x 6 in Dia", price: 3500 },
+      { name: "Pair of 2 Minars (5 ft Height)", dimensions: "60 in Height x 8 in Dia", price: 5500 },
+      { name: "Set of 4 Minars (6 ft Height)", dimensions: "72 in Height x 10 in Dia", price: 11000 },
+      { name: "Grand Stage Set of 4 (8 ft Height)", dimensions: "96 in Height x 12 in Dia", price: 16500 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Minar Set", price: 0 },
+      { name: "Integrated Warm Golden LED Beacon Kit", price: 850 }
+    ]
+  },
+  {
+    id: "prod-minar-royal-blue-gold-glitter",
+    slug: "royal-blue-gold-glitter-striped-minar",
+    sku: "BSC-MNR-BG02",
+    name: "Royal Blue & Gold Glitter Striped Minar",
+    category: "Minar",
+    price: 3800,
+    priceDisplay: "Starting at ₹3,800",
+    isStartingPrice: true,
+    originalPrice: 4800,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Royal Craft",
+    shortDesc: "Regal cylindrical minaret showcasing alternating vertical royal sapphire blue & 24k gold glitter stripes with twin gold ring balconies and white dome.",
+    fullDesc: "An opulent architectural minaret handcrafted with meticulous symmetry. Features vertical fluted stripes of sparkling royal sapphire blue and radiant gold glitter, twin gold-gilded circular observation balconies, vertical white pillared balustrades, and a hand-turned pure white onion dome pinnacle crowned with a tiered finial. Widely favored for royal Tajiya darbars, stage entrances, and luxury religious installations.",
+    dimensions: "Height: 3.5 ft to 8 ft | Base Diameter: 7 to 12 inches",
+    height: "3.5 to 8 Feet",
+    width: "8 inches",
+    depth: "8 inches",
+    material: "High-density virgin thermocol, royal sapphire blue glitter, 24k gold glitter ribbons, sculpted pinnacle",
+    colorFinish: "Royal Sapphire Blue, 24k Gold Glitter & Temple White Dome",
+    lighting: "Ready for internal warm LED glow wiring & base uplighting",
+    craftTime: "In Studio Stock / 4–6 Days for Sets",
+    packaging: "Double-wall padded carton with structural rigid core packaging",
+    image: "/assets/images/minar_royal_blue_gold_glitter.jpg",
+    imagePosition: "object-top",
+    images: [
+      "/assets/images/minar_royal_blue_gold_glitter.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "https://www.youtube.com/watch?v=bzv2S55df8c",
+    featured: true,
+    sizeOptions: [
+      { name: "Pair of 2 Minars (3.5 ft Height)", dimensions: "42 in Height x 7 in Dia", price: 3800 },
+      { name: "Pair of 2 Minars (5 ft Height)", dimensions: "60 in Height x 8 in Dia", price: 6200 },
+      { name: "Set of 4 Minars (6 ft Height)", dimensions: "72 in Height x 10 in Dia", price: 12500 },
+      { name: "Grand Darbar Set of 4 (8 ft Height)", dimensions: "96 in Height x 12 in Dia", price: 18000 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Minar Set", price: 0 },
+      { name: "Integrated Warm Golden LED Beacon Kit", price: 850 }
+    ]
+  },
+  {
+    id: "prod-minar-royal-blue-white-fluted",
+    slug: "royal-blue-white-fluted-column-minar-set",
+    sku: "BSC-MNR-BW03",
+    name: "Royal Blue & White Fluted Column Minar Set",
+    category: "Minar",
+    price: 4200,
+    priceDisplay: "Starting at ₹4,200",
+    isStartingPrice: true,
+    originalPrice: 5200,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Bestseller",
+    shortDesc: "Architectural set of cylindrical minarets crafted with vertical fluted white thermocol columns over deep sapphire blue backing with multi-tier balustrades.",
+    fullDesc: "Elegantly proportioned classical Islamic minarets featuring crisp white thermocol vertical fluted pilasters encircling a rich sapphire blue cylinder core. Complete with a double-tier corbelled balcony railing, deep blue lantern neck, and a sculpted white onion dome finial. Designed for versatile arrangement as twin towers, quad corner minarets, or procession decor.",
+    dimensions: "Height: 3 ft to 7 ft | Diameter: 6 to 10 inches",
+    height: "3 to 7 Feet",
+    width: "8 inches",
+    depth: "8 inches",
+    material: "High-density sculpted thermocol flutes, deep sapphire velvet/board core, solid base",
+    colorFinish: "Pristine White Fluting with Deep Sapphire Blue Contrast",
+    lighting: "Internal wire conduit ready for LED illuminated lantern cupolas",
+    craftTime: "In Studio Stock / 3–5 Days for Custom Orders",
+    packaging: "Custom-cut foam cradle packaging with corner shields",
+    image: "/assets/images/minar_royal_blue_white_fluted.jpg",
+    imagePosition: "object-top",
+    images: [
+      "/assets/images/minar_royal_blue_white_fluted.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "https://www.youtube.com/watch?v=bzv2S55df8c",
+    featured: true,
+    sizeOptions: [
+      { name: "Pair of 2 Minars (3 ft Height)", dimensions: "36 in Height x 6 in Dia", price: 4200 },
+      { name: "Set of 4 Minars (4 ft Height)", dimensions: "48 in Height x 7 in Dia", price: 8200 },
+      { name: "Set of 4 Minars (6 ft Height)", dimensions: "72 in Height x 9 in Dia", price: 13500 },
+      { name: "Monumental Set of 4 (7 ft Height)", dimensions: "84 in Height x 10 in Dia", price: 17500 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Minar Set", price: 0 },
+      { name: "Concealed Warm Glow LED Kit", price: 850 }
+    ]
+  },
+  {
+    id: "prod-minar-golden-dome-tower",
+    slug: "gilded-gold-dome-tower-minar",
+    sku: "BSC-MNR-GD04",
+    name: "Gilded Gold Dome Square Tower Minar",
+    category: "Minar",
+    price: 4800,
+    priceDisplay: "Starting at ₹4,800",
+    isStartingPrice: true,
+    originalPrice: 6000,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Masterpiece",
+    shortDesc: "Monumental square tower minaret featuring tiered Moorish arched windows with royal blue backing, continuous gold bead trim, and 24k gold gilded dome.",
+    fullDesc: "An aristocratic architectural landmark minaret crafted in a square Moroccan-Mughal tower format. Features multi-level horseshoe and Moorish arches cut with precision thermocol revealing rich royal blue velvet interior depths. Every angle is bordered by delicate 24k golden bead piping and gilded cornices, crowned with an open lantern pavilion and a resplendent embossed golden dome with spire finial.",
+    dimensions: "Height: 3.5 ft to 8 ft | Tower Base: 7x7 to 12x12 inches",
+    height: "3.5 to 8 Feet",
+    width: "8 inches",
+    depth: "8 inches",
+    material: "High-density architectural thermocol, royal blue velvet backing, 24k gold bead filigree trim, metallic gold dome",
+    colorFinish: "Pearl White Tower, Gilded 24k Gold Leafing & Royal Blue Inlay Windows",
+    lighting: "Internal ambient lighting channels illuminate the arched blue windows from within",
+    craftTime: "In Studio Stock / 4–7 Days for Custom Scale",
+    packaging: "Heavy-duty wooden reinforced carton crate with bubble wrap cushioning",
+    image: "/assets/images/minar_golden_dome_tower.jpg",
+    imagePosition: "object-top",
+    images: [
+      "/assets/images/minar_golden_dome_tower.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "https://www.youtube.com/watch?v=bzv2S55df8c",
+    featured: true,
+    sizeOptions: [
+      { name: "Pair of 2 Towers (3.5 ft Height)", dimensions: "42 in Height x 7x7 in Base", price: 4800 },
+      { name: "Pair of 2 Towers (5 ft Height)", dimensions: "60 in Height x 8x8 in Base", price: 7800 },
+      { name: "Set of 4 Towers (6 ft Height)", dimensions: "72 in Height x 10x10 in Base", price: 15500 },
+      { name: "Grand Imperial Quad (8 ft Height)", dimensions: "96 in Height x 12x12 in Base", price: 22000 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Tower Plaque", price: 0 },
+      { name: "Internal Arched Window LED Illuminator", price: 1100 }
+    ]
+  },
+  {
     id: "prod-gumbad-e-khazra",
     slug: "gumbad-e-khazra-mini-model",
     sku: "BSC-GKH-01",
@@ -1545,7 +1717,7 @@ export const initialProducts = [
 // Helper functions synced with localStorage for instant Admin Updates
 export const getProducts = () => {
   try {
-    const saved = localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
+    const saved = localStorage.getItem('bsc_products_v22') || localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
@@ -1560,12 +1732,16 @@ export const getProducts = () => {
           return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
         });
 
-        // Ensure the 4 new premier jali products are placed at the front
+        // Ensure the 4 jali products are at front, followed immediately by the 4 authentic minar models
         const premierIds = [
           "prod-jali-ya-ali",
           "prod-jali-chand-tara",
           "prod-jali-diamond-lattice",
-          "prod-jali-om-sacred"
+          "prod-jali-om-sacred",
+          "prod-minar-emerald-green-glitter",
+          "prod-minar-royal-blue-gold-glitter",
+          "prod-minar-royal-blue-white-fluted",
+          "prod-minar-golden-dome-tower"
         ];
         premierIds.slice().reverse().forEach(id => {
           const initP = initialProducts.find(p => p.id === id);
@@ -1579,21 +1755,21 @@ export const getProducts = () => {
           }
         });
 
-        // Ensure newly defined initial products (including 20 authentic Tajiyas) exist in saved products
+        // Ensure newly defined initial products (including 20 authentic Tajiyas & new Minars) exist in saved products
         initialProducts.forEach(initP => {
           const existingIdx = cleaned.findIndex(p => p.id === initP.id || p.slug === initP.slug);
           if (existingIdx === -1) {
             cleaned.push(initP);
             modified = true;
-          } else if (initP.id.startsWith('prod-tajiya-')) {
-            // Update Tajiya image & details to latest authentic posters
+          } else if (initP.id.startsWith('prod-tajiya-') || initP.id.startsWith('prod-minar-')) {
+            // Update image & details to latest authentic specifications
             cleaned[existingIdx] = { ...cleaned[existingIdx], ...initP };
             modified = true;
           }
         });
 
-        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v21')) {
-          localStorage.setItem('bsc_products_v21', JSON.stringify(cleaned));
+        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v22')) {
+          localStorage.setItem('bsc_products_v22', JSON.stringify(cleaned));
         }
         return cleaned;
       }
@@ -1615,9 +1791,9 @@ export const getProducts = () => {
 export const getOtherCollectionProducts = () => {
   const all = getProducts();
   const targetedIds = [
-    "prod-custom-minar",
+    "prod-minar-emerald-green-glitter",
     "prod-thermocol-jali-panel",
-    "prod-noor-cupola-arch",
+    "prod-minar-golden-dome-tower",
     "prod-grand-gumbad-night"
   ];
   const list = targetedIds.map(id => all.find(p => p.id === id)).filter(Boolean);
@@ -1641,7 +1817,7 @@ export const saveProducts = (productsList) => {
         (name.includes('royal blue') && (p.category === 'Tajiya' || p.category === 'tajiya'));
       return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
     });
-    localStorage.setItem('bsc_products_v21', JSON.stringify(cleaned));
+    localStorage.setItem('bsc_products_v22', JSON.stringify(cleaned));
     window.dispatchEvent(new Event('products-updated'));
     return true;
   } catch (e) {

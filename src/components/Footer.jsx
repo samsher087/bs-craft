@@ -233,6 +233,7 @@ export default function Footer({ onOpenPolicy }) {
             <span>•</span>
             <Link
               to="/admin"
+              onClick={() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}
               className="inline-flex items-center gap-1 text-gold-400/90 hover:text-white"
             >
               <Lock className="w-3 h-3" />

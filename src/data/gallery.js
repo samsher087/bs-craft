@@ -57,6 +57,42 @@ export const galleryItems = [
     location: "Delivered to Kolkata"
   },
   {
+    id: "gal-minar-1",
+    title: "Emerald Green Glitter Royal Minars",
+    category: "Minar",
+    image: "/assets/images/minar_emerald_green_glitter.jpg",
+    caption: "Slender minarets with emerald green glitter panels, tiered diamond lattice balconies, and white domes.",
+    dimensions: "Set of 8 Minars (5 ft Height)",
+    location: "Giridih Atelier"
+  },
+  {
+    id: "gal-minar-2",
+    title: "Royal Blue & Gold Glitter Striped Minar",
+    category: "Minar",
+    image: "/assets/images/minar_royal_blue_gold_glitter.jpg",
+    caption: "Symmetrical fluted stripes of royal blue & 24k gold glitter with gold observation rings and white dome.",
+    dimensions: "5 ft Height",
+    location: "Giridih Atelier"
+  },
+  {
+    id: "gal-minar-3",
+    title: "Royal Blue & White Fluted Minar Colonnade",
+    category: "Minar",
+    image: "/assets/images/minar_royal_blue_white_fluted.jpg",
+    caption: "Quad minaret set with crisp vertical fluting, multi-tier balustrades, and sapphire blue contrast.",
+    dimensions: "Quad Set (4.5 ft Height)",
+    location: "Giridih Atelier"
+  },
+  {
+    id: "gal-minar-4",
+    title: "Gilded Gold Dome Square Tower Minar",
+    category: "Minar",
+    image: "/assets/images/minar_golden_dome_tower.jpg",
+    caption: "Square Moorish tower minaret with blue arched window inlays, gold bead piping, and embossed 24k gold dome.",
+    dimensions: "6 ft Height x 8x8 in Base",
+    location: "Giridih Atelier"
+  },
+  {
     id: "gal-6",
     title: "Precision Thermocol Jali Carving",
     category: "Fine Cutwork",

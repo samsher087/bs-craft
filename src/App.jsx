@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import LegalModals from './components/LegalModals';
 import ErrorBoundary from './components/ErrorBoundary';
+import ScrollToTop from './components/ScrollToTop';
 
 // Page Views
 import HomePage from './pages/HomePage';
@@ -35,6 +36,7 @@ export default function App() {
     <ErrorBoundary>
       <CartProvider>
         <Router>
+          <ScrollToTop />
           <div className="min-h-screen bg-warm-light text-luxury-charcoal font-sans selection:bg-gold-500 selection:text-white flex flex-col justify-between">
             
             {/* Sticky Luxury Navbar with Cart Drawer trigger & Mobile Menu */}

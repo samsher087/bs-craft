@@ -14,7 +14,7 @@ const DEFAULT_CONFIG = {
   instagramUrl: "https://instagram.com/beingsamsher",
   youtubeUrl: "https://youtube.com/@beingsamsher",
   facebookUrl: "https://facebook.com/samshercrafts",
-  adminPin: "samsher2026",
+  adminPin: "mdobi11d@2026",
 
   // Pricing Visibility Configuration - Hidden by default per studio policy (can be toggled in Admin Dashboard)
   showPrices: false,

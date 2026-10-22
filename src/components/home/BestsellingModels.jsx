@@ -5,7 +5,7 @@ import { getProducts } from '../../data/products';
 import { buildProductWhatsAppUrl, getSiteConfig } from '../../config/siteConfig';
 
 export default function BestsellingModels() {
-  const products = getProducts().filter(p => p.featured).slice(0, 16);
+  const products = getProducts().filter(p => p.featured).slice(0, 20);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 
@@ -58,7 +58,7 @@ export default function BestsellingModels() {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className={`w-full h-full object-cover ${product.imagePosition || 'object-center'} group-hover:scale-105 transition-transform duration-700 ease-out`}
                     loading="lazy"
                   />
                 </Link>
@@ -149,6 +149,17 @@ export default function BestsellingModels() {
           ))}
         </div>
 
+        {/* View All Products Link */}
+        <div className="mt-10 sm:mt-12 text-center">
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-sand-100 hover:bg-gold-500 text-charcoal-900 hover:text-navy-950 font-serif font-bold text-xs uppercase tracking-wider border border-gold-300 transition-all duration-300 shadow-xs hover:shadow-md"
+          >
+            <span>Explore Complete Collection ({getProducts().length}+ Models)</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </Link>
+        </div>
+
       </div>
 
       {/* Quick View Modal */}
@@ -166,7 +177,7 @@ export default function BestsellingModels() {
               <img
                 src={quickViewProduct.image}
                 alt={quickViewProduct.name}
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover ${quickViewProduct.imagePosition || 'object-center'}`}
               />
             </div>
 

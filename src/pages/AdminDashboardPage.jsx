@@ -49,6 +49,10 @@ const PRESET_STUDIO_IMAGES = [
   { label: 'Ajmer Dargah Model', url: '/assets/images/ajmer_dargah_model.jpg', category: 'Dargah' },
   { label: 'Grand Gumbad Night', url: '/assets/images/grand_gumbad_night.jpg', category: 'Gumbad' },
   { label: 'Custom Minar Work', url: '/assets/images/custom_minar.jpg', category: 'Minar' },
+  { label: 'Emerald Green Glitter Minar', url: '/assets/images/minar_emerald_green_glitter.jpg', category: 'Minar' },
+  { label: 'Royal Blue & Gold Glitter Minar', url: '/assets/images/minar_royal_blue_gold_glitter.jpg', category: 'Minar' },
+  { label: 'Royal Blue & White Fluted Minar', url: '/assets/images/minar_royal_blue_white_fluted.jpg', category: 'Minar' },
+  { label: 'Gilded Gold Dome Tower Minar', url: '/assets/images/minar_golden_dome_tower.jpg', category: 'Minar' },
   { label: 'Thermocol Jali Cutting', url: '/assets/images/workshop_jali_cutting.jpg', category: 'Jali' }
 ];
 
@@ -120,6 +124,8 @@ export default function AdminDashboardPage() {
   ];
 
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
     // Check session
     const session = sessionStorage.getItem('bsc_admin_auth');
     if (session === 'true') {
@@ -144,10 +150,11 @@ export default function AdminDashboardPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (pinInput === config.adminPin || pinInput === 'samsher2026') {
+    if (pinInput === config.adminPin || pinInput === 'mdobi11d') {
       setIsAuthenticated(true);
       sessionStorage.setItem('bsc_admin_auth', 'true');
       setLoginError('');
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     } else {
       setLoginError('Incorrect Security PIN. Please try again.');
     }
@@ -388,7 +395,7 @@ export default function AdminDashboardPage() {
               </label>
               <input
                 type="password"
-                placeholder="Enter PIN (Default: samsher2026)"
+                placeholder="Enter PIN (Default: your@name)"
                 value={pinInput}
                 onChange={(e) => setPinInput(e.target.value)}
                 className="w-full px-4 py-3 rounded-md bg-warm-light/40 border border-subtle text-luxury-charcoal text-sm focus:outline-none focus:border-gold-500"
@@ -463,8 +470,8 @@ export default function AdminDashboardPage() {
           <button
             onClick={() => setActiveTab('enquiries')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'enquiries'
-                ? 'bg-emerald-900 text-white shadow-sm'
-                : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
+              ? 'bg-emerald-900 text-white shadow-sm'
+              : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
               }`}
           >
             <MessageSquare className="w-4 h-4" />
@@ -474,8 +481,8 @@ export default function AdminDashboardPage() {
           <button
             onClick={() => setActiveTab('products')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'products'
-                ? 'bg-emerald-900 text-white shadow-sm'
-                : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
+              ? 'bg-emerald-900 text-white shadow-sm'
+              : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
               }`}
           >
             <FolderPlus className="w-4 h-4" />
@@ -485,8 +492,8 @@ export default function AdminDashboardPage() {
           <button
             onClick={() => setActiveTab('settings')}
             className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'settings'
-                ? 'bg-emerald-900 text-white shadow-sm'
-                : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
+              ? 'bg-emerald-900 text-white shadow-sm'
+              : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
               }`}
           >
             <Settings className="w-4 h-4" />
@@ -524,8 +531,8 @@ export default function AdminDashboardPage() {
                             {enq.customerName}
                           </h3>
                           <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${enq.status === 'New' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
-                              enq.status === 'Contacted' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
-                                'bg-warm-light text-luxury-charcoal/70'
+                            enq.status === 'Contacted' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                              'bg-warm-light text-luxury-charcoal/70'
                             }`}>
                             {enq.status}
                           </span>
@@ -740,11 +747,10 @@ export default function AdminDashboardPage() {
                         Choose whether price figures (₹) are shown to visitors or hidden behind "Price on Request".
                       </span>
                     </div>
-                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider self-start sm:self-auto ${
-                      config.showPrices
-                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                        : 'bg-amber-100 text-amber-900 border border-amber-300'
-                    }`}>
+                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider self-start sm:self-auto ${config.showPrices
+                      ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                      : 'bg-amber-100 text-amber-900 border border-amber-300'
+                      }`}>
                       {config.showPrices ? '● Prices Visible' : '● Prices Hidden'}
                     </span>
                   </div>
@@ -753,16 +759,14 @@ export default function AdminDashboardPage() {
                     <button
                       type="button"
                       onClick={() => setConfig({ ...config, showPrices: false })}
-                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                        !config.showPrices
-                          ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-gold-500/30'
-                          : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
-                      }`}
+                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${!config.showPrices
+                        ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-gold-500/30'
+                        : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
+                        }`}
                     >
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                          !config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
-                        }`}>
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${!config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
+                          }`}>
                           {!config.showPrices && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                         </div>
                         <span className="text-xs font-bold text-luxury-charcoal">Hide Prices (Active)</span>
@@ -775,16 +779,14 @@ export default function AdminDashboardPage() {
                     <button
                       type="button"
                       onClick={() => setConfig({ ...config, showPrices: true })}
-                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                        config.showPrices
-                          ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-emerald-500/30'
-                          : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
-                      }`}
+                      className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer ${config.showPrices
+                        ? 'border-emerald-900 bg-white font-bold text-luxury-charcoal shadow-sm ring-2 ring-emerald-500/30'
+                        : 'border-subtle bg-white/70 text-luxury-charcoal/60 hover:bg-white'
+                        }`}
                     >
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                          config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
-                        }`}>
+                        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${config.showPrices ? 'border-emerald-900 bg-emerald-900' : 'border-[#9CA3AF]'
+                          }`}>
                           {config.showPrices && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                         </div>
                         <span className="text-xs font-bold text-luxury-charcoal">Show Prices Publicly</span>
@@ -1084,8 +1086,8 @@ export default function AdminDashboardPage() {
                                   type="button"
                                   onClick={() => setFormData({ ...formData, tag: t })}
                                   className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all cursor-pointer ${formData.tag === t
-                                      ? 'bg-gold-500 text-[#0F100F] shadow-xs ring-1 ring-gold-600'
-                                      : 'bg-[#F3F4F6] hover:bg-gold-100 text-[#1F2937] border border-[#D1D5DB]'
+                                    ? 'bg-gold-500 text-[#0F100F] shadow-xs ring-1 ring-gold-600'
+                                    : 'bg-[#F3F4F6] hover:bg-gold-100 text-[#1F2937] border border-[#D1D5DB]'
                                     }`}
                                 >
                                   {t}
@@ -1204,8 +1206,8 @@ export default function AdminDashboardPage() {
                                 type="button"
                                 onClick={() => setFormData({ ...formData, isStartingPrice: true })}
                                 className={`py-2 px-3 rounded-xl border-2 text-center font-bold text-xs transition-all cursor-pointer ${formData.isStartingPrice
-                                    ? 'bg-emerald-900 text-white border-emerald-900 shadow-sm'
-                                    : 'bg-[#F9FAFB] text-[#374151] border-[#D1D5DB] hover:bg-white'
+                                  ? 'bg-emerald-900 text-white border-emerald-900 shadow-sm'
+                                  : 'bg-[#F9FAFB] text-[#374151] border-[#D1D5DB] hover:bg-white'
                                   }`}
                               >
                                 Starting at ₹...
@@ -1214,8 +1216,8 @@ export default function AdminDashboardPage() {
                                 type="button"
                                 onClick={() => setFormData({ ...formData, isStartingPrice: false })}
                                 className={`py-2 px-3 rounded-xl border-2 text-center font-bold text-xs transition-all cursor-pointer ${!formData.isStartingPrice
-                                    ? 'bg-emerald-900 text-white border-emerald-900 shadow-sm'
-                                    : 'bg-[#F9FAFB] text-[#374151] border-[#D1D5DB] hover:bg-white'
+                                  ? 'bg-emerald-900 text-white border-emerald-900 shadow-sm'
+                                  : 'bg-[#F9FAFB] text-[#374151] border-[#D1D5DB] hover:bg-white'
                                   }`}
                               >
                                 Fixed ₹...
@@ -1382,8 +1384,8 @@ export default function AdminDashboardPage() {
                               onDragLeave={handleDragLeave}
                               onDrop={handleDrop}
                               className={`p-4 sm:p-5 rounded-2xl border-2 border-dashed transition-all flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs cursor-pointer select-none ${isDragging
-                                  ? 'border-gold-600 bg-gold-100 ring-4 ring-gold-500/30 scale-[1.01]'
-                                  : 'border-gold-400 bg-gold-50/60 hover:bg-gold-50/90 hover:border-gold-500'
+                                ? 'border-gold-600 bg-gold-100 ring-4 ring-gold-500/30 scale-[1.01]'
+                                : 'border-gold-400 bg-gold-50/60 hover:bg-gold-50/90 hover:border-gold-500'
                                 }`}
                             >
                               <div className="flex items-center gap-3.5">
@@ -1734,8 +1736,8 @@ export default function AdminDashboardPage() {
                               setImageError(false);
                             }}
                             className={`flex items-center gap-2 p-2 rounded-xl border-2 text-left transition-all cursor-pointer ${formData.image === preset.url
-                                ? 'border-gold-500 bg-gold-50 ring-2 ring-gold-500/40'
-                                : 'border-[#E5E7EB] bg-[#F9FAFB] hover:bg-white hover:border-gold-400'
+                              ? 'border-gold-500 bg-gold-50 ring-2 ring-gold-500/40'
+                              : 'border-[#E5E7EB] bg-[#F9FAFB] hover:bg-white hover:border-gold-400'
                               }`}
                           >
                             <img
