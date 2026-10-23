@@ -259,7 +259,7 @@ export default function ContactSection({ isPage = false }) {
                   <h4 className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight">Samsher Alam</h4>
                   <p className="text-xs sm:text-sm text-gold-400 font-medium">Founder: Being Samsher Crafting</p>
                   <p className="text-[11px] text-sand-300/80 font-mono pt-0.5">
-                    📍 Giridih Atelier, Jharkhand • PAN-INDIA DELIVERY
+                    📍Jharkhand • PAN-INDIA DELIVERY
                   </p>
                 </div>
               </div>

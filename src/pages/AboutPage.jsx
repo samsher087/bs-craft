@@ -92,7 +92,7 @@ export default function AboutPage() {
                   <p className="text-xs text-gold-600 font-semibold">Founder </p>
                   <p className="text-[11px] text-luxury-charcoal/70 mt-1 flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>Studio in Jharkhand, India</span>
+                    <span>Jharkhand, India</span>
                   </p>
                 </div>
               </div>
