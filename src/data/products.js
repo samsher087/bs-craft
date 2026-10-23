@@ -1857,9 +1857,28 @@ export const getTajiyaProducts = () => {
 };
 
 export const getProductBySlug = (slug) => {
+  if (!slug) return null;
+  const normalized = String(slug).toLowerCase().trim().replace(/\/+$/, '');
   const all = getProducts();
-  return all.find(p => p.slug === slug || p.id === slug) ||
-    (slug === 'custom-minar-model' ? all.find(p => p.id === 'prod-ala-hazrat-gumbad') : null) ||
-    (slug === 'royal-tajiya' ? all.find(p => p.id === 'prod-tajiya-golden-palace' || p.id === 'prod-madina-gumbad-minar') : null) ||
-    (slug === 'custom-lighting-model' ? all.find(p => p.id === 'prod-kaaba-sharif-model') : null);
+  const match = (p) =>
+    (p.slug && p.slug.toLowerCase().trim() === normalized) ||
+    (p.id && p.id.toLowerCase().trim() === normalized);
+
+  const found = all.find(match);
+  if (found) return found;
+
+  const fallback = initialProducts.find(match);
+  if (fallback) return fallback;
+
+  if (normalized === 'custom-minar-model') {
+    return all.find(p => p.id === 'prod-ala-hazrat-gumbad') || initialProducts.find(p => p.id === 'prod-ala-hazrat-gumbad');
+  }
+  if (normalized === 'royal-tajiya') {
+    return all.find(p => p.id === 'prod-tajiya-golden-palace' || p.id === 'prod-madina-gumbad-minar') ||
+      initialProducts.find(p => p.id === 'prod-tajiya-golden-palace' || p.id === 'prod-madina-gumbad-minar');
+  }
+  if (normalized === 'custom-lighting-model') {
+    return all.find(p => p.id === 'prod-kaaba-sharif-model') || initialProducts.find(p => p.id === 'prod-kaaba-sharif-model');
+  }
+  return null;
 };
