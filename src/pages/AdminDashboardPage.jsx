@@ -35,11 +35,15 @@ import {
   Package,
   RotateCcw,
   Upload,
-  FolderOpen
+  FolderOpen,
+  Megaphone
 } from 'lucide-react';
 import { getProducts, saveProducts } from '../data/products';
 import { getEnquiries, updateEnquiryStatus, deleteEnquiry } from '../data/enquiries';
 import { getSiteConfig, saveSiteConfig, buildWhatsAppUrl } from '../config/siteConfig';
+import { getBanners, saveBanner } from '../data/banners';
+import BannerManager from '../components/admin/BannerManager';
+import BannerEditModal from '../components/admin/BannerEditModal';
 
 const PRESET_STUDIO_IMAGES = [
   { label: 'Royal Gold Tajiya', url: '/assets/images/hero_royal_tajiya.jpg', category: 'Tajiya' },
@@ -71,10 +75,12 @@ export default function AdminDashboardPage() {
   const [pinInput, setPinInput] = useState('');
   const [loginError, setLoginError] = useState('');
 
-  const [activeTab, setActiveTab] = useState('enquiries'); // 'enquiries' | 'products' | 'settings'
+  const [activeTab, setActiveTab] = useState('enquiries'); // 'enquiries' | 'products' | 'banners' | 'settings'
   const [products, setProducts] = useState(getProducts());
   const [enquiries, setEnquiries] = useState(getEnquiries());
+  const [banners, setBanners] = useState(getBanners());
   const [config, setConfig] = useState(getSiteConfig());
+  const [isHeaderBannerModalOpen, setIsHeaderBannerModalOpen] = useState(false);
 
   // Search & filter in admin
   const [searchTerm, setSearchTerm] = useState('');
@@ -135,15 +141,18 @@ export default function AdminDashboardPage() {
     const refreshData = () => {
       setProducts(getProducts());
       setEnquiries(getEnquiries());
+      setBanners(getBanners());
       setConfig(getSiteConfig());
     };
 
     window.addEventListener('products-updated', refreshData);
     window.addEventListener('enquiries-updated', refreshData);
+    window.addEventListener('banners-updated', refreshData);
     window.addEventListener('site-config-updated', refreshData);
     return () => {
       window.removeEventListener('products-updated', refreshData);
       window.removeEventListener('enquiries-updated', refreshData);
+      window.removeEventListener('banners-updated', refreshData);
       window.removeEventListener('site-config-updated', refreshData);
     };
   }, []);
@@ -384,7 +393,7 @@ export default function AdminDashboardPage() {
               Studio Admin Portal
             </h2>
             <p className="text-xs text-luxury-charcoal/70">
-              Enter master access PIN to manage product models, review custom orders, and configure studio contacts.
+              Enter master access PIN to manage product models, edit banner announcements, review custom orders, and configure studio contacts.
             </p>
           </div>
 
@@ -449,6 +458,17 @@ export default function AdminDashboardPage() {
 
           <div className="flex items-center gap-3">
             <button
+              onClick={() => {
+                setActiveTab('banners');
+                setIsHeaderBannerModalOpen(true);
+              }}
+              className="px-4 py-2 rounded-full bg-gold-500 hover:bg-gold-600 text-luxury-charcoal font-bold text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+            >
+              <Megaphone className="w-4 h-4 text-luxury-charcoal" />
+              <span>Add Banner Text</span>
+            </button>
+
+            <button
               onClick={handleAddNew}
               className="px-4 py-2 rounded-full bg-emerald-900 hover:bg-emerald-800 text-white font-medium text-xs tracking-wider uppercase flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
@@ -487,6 +507,17 @@ export default function AdminDashboardPage() {
           >
             <FolderPlus className="w-4 h-4" />
             <span>Catalogue Products ({products.length})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('banners')}
+            className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer ${activeTab === 'banners'
+              ? 'bg-emerald-900 text-white shadow-sm'
+              : 'bg-white text-luxury-charcoal/70 hover:text-luxury-charcoal border border-subtle'
+              }`}
+          >
+            <Megaphone className="w-4 h-4" />
+            <span>Banner Text & News ({banners.length})</span>
           </button>
 
           <button
@@ -721,7 +752,15 @@ export default function AdminDashboardPage() {
           </div>
         )}
 
-        {/* TAB 3: SITE CONFIG & HERO VIDEO */}
+        {/* TAB 3: BANNER ANNOUNCEMENTS & NEWS (CMS) */}
+        {activeTab === 'banners' && (
+          <BannerManager
+            banners={banners}
+            setBanners={setBanners}
+          />
+        )}
+
+        {/* TAB 4: SITE CONFIG & HERO VIDEO */}
         {activeTab === 'settings' && (
           <div className="mt-8 max-w-2xl mx-auto">
             <form onSubmit={handleSaveSettings} className="p-6 sm:p-8 rounded-card bg-white border border-subtle shadow-sm space-y-5">
@@ -1842,6 +1881,18 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       )}
+
+      {/* QUICK ADD BANNER MODAL FROM TOP BAR */}
+      <BannerEditModal
+        isOpen={isHeaderBannerModalOpen}
+        onClose={() => setIsHeaderBannerModalOpen(false)}
+        onSave={(data) => {
+          saveBanner(data);
+          setBanners(getBanners());
+          setIsHeaderBannerModalOpen(false);
+        }}
+        editingBanner={null}
+      />
 
     </div>
   );
