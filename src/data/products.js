@@ -727,6 +727,49 @@ export const initialProducts = [
     ]
   },
   {
+    id: "prod-tajiya-spiritual-beauty-mosque-model",
+    slug: "handcrafted-islamic-model-mosque-spiritual-beauty",
+    sku: "BSC-TAJ-MM02",
+    name: "Handcrafted Islamic Model Mosque (Spiritual Beauty)",
+    category: "Tajiya",
+    price: 68000,
+    priceDisplay: "Starting at ₹68,000",
+    isStartingPrice: true,
+    originalPrice: 75000,
+    availability: "Made to Order · All India Safe Delivery",
+    customizable: true,
+    tag: "Spiritual Masterpiece",
+    shortDesc: "A touch of spiritual beauty — Handcrafted Islamic model mosque with illuminated textured dome, royal illuminated minarets, intricate architectural carvings, and radiant multi-color LED illumination.",
+    fullDesc: "A Touch of Spiritual Beauty — The signature Being Samsher Handcrafted Islamic Model Mosque, presenting a timeless blend of tradition, art, and master craftsmanship. Features an intricately textured central dome glowing with vibrant multi-hued LED lighting (emerald, ruby, and warm golden amber), royal multi-tiered minarets that impart an imperial majesty, delicate floral and geometric jali carvings, and illuminated arcades. Handcrafted with supreme care and heavy-duty structural durability. Perfect for Ramadan, Eid, luxury wedding stages, prestigious home decor, and spiritual gifting.",
+    dimensions: "Base: 4 x 4 Feet | Height: 8.5 Feet (Customizable Sizes Available)",
+    height: "8.5 Feet",
+    width: "4 Feet",
+    depth: "4 Feet",
+    material: "High-density reinforced architectural thermocol, 24k metallic gold accents, multi-mode LED circuits, acrylic light diffusers, rigid structural chassis",
+    colorFinish: "Pure Alabaster White, Royal Emerald, Ruby & Radiant Gold Accents",
+    lighting: "Multi-color dynamic LED lighting: illuminated tri-color main dome, interior-lit minarets, backlit filigree arches, and warm-white base perimeter lights",
+    craftTime: "18 to 25 Days",
+    packaging: "Heavy-duty wooden transit crate with custom shock-absorbing foam contours",
+    image: "/assets/images/tajiya_spiritual_beauty_mosque_model.jpg",
+    images: [
+      "/assets/images/tajiya_spiritual_beauty_mosque_model.jpg",
+      "/assets/images/tajiya_islamic_mosque_model_grand.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "",
+    featured: true,
+    sizeOptions: [
+      { name: "3.5 Feet Height (Table / Home Scale)", dimensions: "24 x 24 x 42 in", price: 26000 },
+      { name: "5.5 Feet Height (Mawlid / Event Scale)", dimensions: "36 x 36 x 66 in", price: 38000 },
+      { name: "8.5 Feet Height (Grand Darbar Scale)", dimensions: "48 x 48 x 102 in", price: 52000 },
+      { name: "11+ Feet Monumental Palace Scale", dimensions: "60 x 60 x 132 in", price: 75000 }
+    ],
+    lightingOptions: [
+      { name: "Full Dynamic Multi-Circuit LED Array", price: 0 },
+      { name: "Heavy-Duty 12V Battery & Charger Kit", price: 3800 }
+    ]
+  },
+  {
     id: "prod-tajiya-islamic-mosque-model",
     slug: "handcrafted-islamic-model-mosque-darbar",
     sku: "BSC-TAJ-MM01",
@@ -1717,7 +1760,7 @@ export const initialProducts = [
 // Helper functions synced with localStorage for instant Admin Updates
 export const getProducts = () => {
   try {
-    const saved = localStorage.getItem('bsc_products_v22') || localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
+    const saved = localStorage.getItem('bsc_products_v23') || localStorage.getItem('bsc_products_v22') || localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
@@ -1768,8 +1811,8 @@ export const getProducts = () => {
           }
         });
 
-        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v22')) {
-          localStorage.setItem('bsc_products_v22', JSON.stringify(cleaned));
+        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v23')) {
+          localStorage.setItem('bsc_products_v23', JSON.stringify(cleaned));
         }
         return cleaned;
       }
@@ -1817,7 +1860,7 @@ export const saveProducts = (productsList) => {
         (name.includes('royal blue') && (p.category === 'Tajiya' || p.category === 'tajiya'));
       return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
     });
-    localStorage.setItem('bsc_products_v22', JSON.stringify(cleaned));
+    localStorage.setItem('bsc_products_v23', JSON.stringify(cleaned));
     window.dispatchEvent(new Event('products-updated'));
     return true;
   } catch (e) {
@@ -1829,6 +1872,7 @@ export const saveProducts = (productsList) => {
 export const getTajiyaProducts = () => {
   const all = getProducts();
   const premierTajiyaIds = [
+    "prod-tajiya-spiritual-beauty-mosque-model",
     "prod-tajiya-islamic-mosque-model",
     "prod-tajiya-blue-arcade",
     "prod-tajiya-royal-blue-glow",

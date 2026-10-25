@@ -12,6 +12,15 @@ export const galleryCategories = [
 
 export const galleryItems = [
   {
+    id: "gal-tajiya-spiritual-mosque",
+    title: "Handcrafted Islamic Model Mosque (Spiritual Beauty)",
+    category: "Tajiya",
+    image: "/assets/images/tajiya_spiritual_beauty_mosque_model.jpg",
+    caption: "A Touch of Spiritual Beauty — Masterpiece mosque model with multi-color illuminated textured dome, glowing minarets, and intricate architectural carvings.",
+    dimensions: "8.5 ft Height x 4 ft Base",
+    location: "Signature Darbar Collection"
+  },
+  {
     id: "gal-1",
     title: "Shahi Darbar Royal Tajiya",
     category: "Tajiya",
