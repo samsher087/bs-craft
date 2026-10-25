@@ -38,14 +38,19 @@ export default function Footer({ onOpenPolicy }) {
 
           {/* Brand Identity & Tagline */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3 group">
-              <img
-                src="/assets/images/logo.png"
-                alt="Being Samsher Crafting"
-                className="h-14 sm:h-16 md:h-18 w-auto object-contain transition-all duration-300 group-hover:scale-105 brightness-125 contrast-105 drop-shadow-[0_0_12px_rgba(255,255,255,0.35)]"
-              />
+            <Link to="/" className="flex items-center gap-3.5 group">
+              <div className="flex flex-col items-center shrink-0">
+                <img
+                  src="/assets/images/samsher_alam_founder.jpg"
+                  alt="Samsher Alam - Founder"
+                  className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-center border-2 border-gold-400/80 shadow-[0_0_15px_rgba(198,161,91,0.35)] transition-all duration-300 group-hover:scale-105 group-hover:border-gold-300 ring-2 ring-gold-500/20"
+                />
+                <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-gold-400 font-semibold mt-1">
+                  Founder
+                </span>
+              </div>
               <div>
-                <span className="font-cormorant italic text-lg sm:text-xl transition-colors text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+                <span className="font-cormorant italic text-lg sm:text-xl transition-colors text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)] block">
                   Being Samsher Crafting
                 </span>
                 <span className="text-[9px] tracking-[0.2em] uppercase font-sans text-gold-400 font-semibold block">

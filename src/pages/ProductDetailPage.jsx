@@ -129,7 +129,7 @@ export default function ProductDetailPage() {
   const galleryImages = product.images && product.images.length > 0 ? product.images : [product.image];
 
   return (
-    <div className="min-h-screen pt-28 pb-24 bg-sand-100 text-charcoal-900">
+    <div className="min-h-screen pt-28 pb-24 bg-[#FAF7F2] text-charcoal-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Navigation Breadcrumb */}

@@ -27,7 +27,7 @@ export default function BestsellingModels() {
   };
 
   return (
-    <section className="pt-8 sm:pt-10 pb-8 sm:pb-9 bg-white text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-9 bg-[#FAF7F2] text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header - Centered */}
@@ -50,10 +50,10 @@ export default function BestsellingModels() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group rounded-card border border-subtle bg-sand-50/40 hover:bg-white hover:border-gold-300 hover:shadow-medium transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group rounded-card border border-gold-500/20 hover:border-gold-400/80 bg-[#181B22] shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               {/* Product Image Area */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-sand-100">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-charcoal-950">
                 <Link to={`/products/${product.slug}`} className="block w-full h-full">
                   <img
                     src={product.image}
@@ -73,55 +73,55 @@ export default function BestsellingModels() {
                 {/* Quick View Button */}
                 <button
                   onClick={() => setQuickViewProduct(product)}
-                  className="absolute bottom-3 right-3 p-2 rounded-full bg-white/90 hover:bg-charcoal-900 hover:text-white text-charcoal-800 shadow-sm backdrop-blur-md transition-all cursor-pointer"
+                  className="absolute bottom-3 right-3 p-2 rounded-full bg-black/60 hover:bg-gold-500 hover:text-charcoal-950 text-white shadow-sm backdrop-blur-md transition-all cursor-pointer border border-white/20"
                   title="Quick View"
                 >
                   <Eye className="w-3.5 h-3.5" />
                 </button>
               </div>
 
-              {/* Product Details */}
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+              {/* Product Details - Sleek Charcoal Dark with White Font */}
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-4 bg-[#181B22] text-white">
                 <div className="space-y-1.5">
-                  <div className="flex items-center justify-between text-[11px] text-charcoal-500 font-mono">
-                    <span className="line-clamp-1">{product.category}</span>
-                    <span className="text-emerald-800 font-medium whitespace-nowrap ml-2">{product.availability}</span>
+                  <div className="flex items-center justify-between text-[11px] font-mono">
+                    <span className="line-clamp-1 text-gold-300/85">{product.category}</span>
+                    <span className="text-emerald-400 font-medium whitespace-nowrap ml-2">{product.availability}</span>
                   </div>
 
                   <Link to={`/products/${product.slug}`} className="block">
-                    <h3 className="font-serif text-base font-bold text-charcoal-900 group-hover:text-gold-600 transition-colors line-clamp-1">
+                    <h3 className="font-serif text-base font-bold text-white group-hover:text-gold-300 transition-colors line-clamp-1">
                       {product.name}
                     </h3>
                   </Link>
 
-                  <p className="text-xs text-charcoal-600 line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-sand-200/80 line-clamp-2 leading-relaxed font-sans">
                     {product.shortDesc}
                   </p>
                 </div>
 
                 {/* Pricing & Actions */}
-                <div className="pt-3 border-t border-subtle space-y-3">
+                <div className="pt-3 border-t border-white/10 space-y-3">
                   <div className="flex items-baseline justify-between">
                     <div>
                       {siteConfig.showPrices ? (
                         <>
-                          <span className="font-serif text-lg font-bold text-charcoal-900">
+                          <span className="font-serif text-lg font-bold text-gold-300">
                             {product.priceDisplay || `₹${product.price.toLocaleString('en-IN')}`}
                           </span>
                           {product.originalPrice && (
-                            <span className="text-xs text-charcoal-400 line-through ml-2">
+                            <span className="text-xs text-sand-400 line-through ml-2">
                               ₹{product.originalPrice.toLocaleString('en-IN')}
                             </span>
                           )}
                         </>
                       ) : (
-                        <span className="font-serif text-sm font-bold text-charcoal-800">
+                        <span className="font-serif text-sm font-bold text-white">
                           Pricing on request
                         </span>
                       )}
                     </div>
 
-                    <span className="text-[10px] text-gold-700 bg-gold-50 px-2 py-0.5 rounded font-mono font-medium border border-gold-200">
+                    <span className="text-[10px] text-gold-300 bg-black/40 px-2.5 py-0.5 rounded font-mono font-medium border border-gold-400/35">
                       Customizable
                     </span>
                   </div>
@@ -129,14 +129,14 @@ export default function BestsellingModels() {
                   <div className="grid grid-cols-2 gap-2">
                     <Link
                       to={`/products/${product.slug}`}
-                      className="py-2 rounded-lg border border-subtle hover:bg-sand-100 text-charcoal-800 text-center text-xs font-semibold transition-colors"
+                      className="py-2 rounded-lg border border-white/20 bg-white/5 hover:bg-white text-white hover:text-charcoal-900 text-center text-xs font-semibold uppercase tracking-wider transition-all"
                     >
                       View Details
                     </Link>
 
                     <button
                       onClick={(e) => handleWhatsAppOrder(e, product)}
-                      className="py-2 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer"
+                      className="py-2 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer shadow-sm"
                     >
                       <MessageCircle className="w-3.5 h-3.5" />
                       <span>WhatsApp</span>

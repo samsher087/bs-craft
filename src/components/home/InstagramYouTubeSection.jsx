@@ -47,7 +47,7 @@ export default function InstagramYouTubeSection() {
   };
 
   return (
-    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-sand-100 text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-[#FAF7F2] text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

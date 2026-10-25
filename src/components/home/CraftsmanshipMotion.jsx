@@ -50,27 +50,27 @@ export default function CraftsmanshipMotion() {
   ];
 
   return (
-    <section id="craft" className="pt-10 sm:pt-12 pb-8 sm:pb-10 bg-charcoal-850 text-white border-b border-subtle-dark">
+    <section id="craft" className="pt-10 sm:pt-12 pb-8 sm:pb-10 bg-[#FAF7F2] text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-7 sm:pb-8 border-b border-subtle-dark">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-7 sm:pb-8 border-b border-[#E8E3D8]">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-400/30 text-gold-300 text-[11px] font-mono uppercase tracking-[0.2em] font-semibold">
-              <YoutubeIcon className="w-3.5 h-3.5 text-red-500" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-200/70 border border-gold-500/30 text-charcoal-800 text-[11px] font-mono uppercase tracking-[0.2em] font-semibold">
+              <YoutubeIcon className="w-3.5 h-3.5 text-red-600" />
               <span>Studio Crafting Videos</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">
-              Craftsmanship <span className="font-cormorant italic font-normal text-gold-400">in Motion</span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-charcoal-900">
+              Craftsmanship <span className="font-cormorant italic font-normal text-gold-600">in Motion</span>
             </h2>
-            <p className="text-xs sm:text-sm text-sand-300/80 max-w-xl font-sans">
+            <p className="text-xs sm:text-sm text-charcoal-600 max-w-xl font-sans">
               Watch real-time cutting, illumination tests, and master reveals directly from our workshop. Click any card below to play the video.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-charcoal-900 border border-white/10 text-xs text-sand-200 font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-subtle text-xs text-charcoal-700 font-mono shadow-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>5 Interactive Video Stages</span>
             </span>
           </div>
@@ -82,16 +82,16 @@ export default function CraftsmanshipMotion() {
             <div
               key={strip.id}
               onClick={() => setActiveClip(strip)}
-              className="group relative rounded-card overflow-hidden bg-charcoal-900 border border-subtle-dark hover:border-gold-400/70 shadow-subtle hover:shadow-[0_4px_24px_rgba(212,160,23,0.25)] transition-all duration-300 flex flex-col justify-between cursor-pointer"
+              className="group relative rounded-card overflow-hidden bg-[#181B22] border border-gold-500/20 hover:border-gold-400/80 shadow-sm hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between cursor-pointer"
             >
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-charcoal-950">
                 <img
                   src={strip.image}
                   alt={strip.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-85 group-hover:opacity-100"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-90 group-hover:opacity-100"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/20 to-transparent" />
 
                 {/* Highly Visible Animated Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -105,7 +105,7 @@ export default function CraftsmanshipMotion() {
 
                 {/* Stage Phase Pill */}
                 <div className="absolute top-3 left-3">
-                  <span className="px-2 py-0.5 rounded text-[9px] font-mono uppercase bg-charcoal-950/85 text-gold-300 border border-gold-500/30 shadow-sm backdrop-blur-sm">
+                  <span className="px-2 py-0.5 rounded text-[9px] font-mono uppercase bg-black/60 text-gold-300 border border-gold-400/40 shadow-sm backdrop-blur-xs font-semibold">
                     {strip.phase}
                   </span>
                 </div>
@@ -119,12 +119,13 @@ export default function CraftsmanshipMotion() {
                 </div>
               </div>
 
-              <div className="p-4 space-y-2 bg-charcoal-900 flex-1 flex flex-col justify-between">
+              {/* Bottom Card Details - Sleek Charcoal Dark with White Font */}
+              <div className="p-4 space-y-2 bg-[#181B22] text-white flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-serif text-sm font-bold text-white group-hover:text-gold-300 transition-colors line-clamp-1">
                     {strip.title}
                   </h3>
-                  <p className="text-[11px] text-sand-300/70 line-clamp-2 leading-relaxed mt-1">
+                  <p className="text-[11px] text-sand-200/80 line-clamp-2 leading-relaxed mt-1 font-sans">
                     {strip.desc}
                   </p>
                 </div>
@@ -134,7 +135,7 @@ export default function CraftsmanshipMotion() {
                     <Play className="w-3 h-3 fill-gold-400" />
                     Watch Clip
                   </span>
-                  <span className="text-[10px] text-emerald-400 font-mono">HD Demo ▶</span>
+                  <span className="text-[10px] text-emerald-400 font-mono font-medium">HD Demo ▶</span>
                 </div>
               </div>
             </div>

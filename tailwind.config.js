@@ -10,7 +10,7 @@ export default {
         // Modern Contemporary Luxury Palette (User Specified)
         sand: {
           50: '#FAF9F6',
-          100: '#F7F6F2', // Warm off-white background
+          100: '#FAF7F2', // Signature warm alabaster background
           200: '#EFECE4',
           300: '#E4DFD3',
           400: '#CBC4B4',
@@ -47,7 +47,7 @@ export default {
           500: '#2DBA9A',
         },
         'luxury-charcoal': '#151515',
-        'warm-light': '#F7F6F2'
+        'warm-light': '#FAF7F2'
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', '"Inter"', 'sans-serif'],

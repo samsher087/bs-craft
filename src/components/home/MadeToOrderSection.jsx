@@ -4,7 +4,7 @@ import { Sparkles, ArrowRight, CheckCircle2, Ruler, ShieldCheck } from 'lucide-r
 
 export default function MadeToOrderSection() {
   return (
-    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-sand-100 text-charcoal-900 border-b border-subtle">
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-[#FAF7F2] text-charcoal-900 border-b border-subtle">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

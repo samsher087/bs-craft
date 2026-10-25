@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --bg-warm-white: #F7F6F2;
+    --bg-warm-white: #FAF7F2;
     --text-primary: #151515;
     --accent-gold: #C6A15B;
     --accent-emerald: #124B3D;
@@ -13,7 +13,7 @@
   }
 
   body {
-    background-color: #F7F6F2;
+    background-color: #FAF7F2;
     color: #151515;
     font-family: 'Plus Jakarta Sans', sans-serif;
     overflow-x: hidden;
@@ -25,7 +25,7 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #F7F6F2;
+    background: #FAF7F2;
   }
   ::-webkit-scrollbar-thumb {
     background: #C6A15B;
@@ -64,7 +64,7 @@
 }
 
 .bg-warm-light {
-  background-color: #F7F6F2 !important;
+  background-color: #FAF7F2 !important;
 }
 
 /* Modal form inputs high contrast styling */

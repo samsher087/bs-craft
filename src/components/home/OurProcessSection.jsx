@@ -42,24 +42,24 @@ export default function OurProcessSection() {
   ];
 
   return (
-    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-[#0C0F17] text-sand-100 relative overflow-hidden border-y border-gold-500/15">
-      {/* Ambient background lighting glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold-500/5 rounded-full blur-[170px] pointer-events-none" />
+    <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-[#FAF7F2] text-charcoal-900 relative overflow-hidden border-b border-subtle">
+      {/* Subtle ambient warm glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold-500/[0.03] rounded-full blur-[170px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-950/70 border border-gold-400/40 text-gold-300 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.2em] shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand-200/80 border border-gold-500/30 text-charcoal-800 text-[10px] sm:text-[11px] font-mono font-semibold uppercase tracking-[0.2em] shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-gold-600" />
             <span>Simple 6-Step Workflow</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white">
-            Our <span className="font-cormorant italic font-normal text-gold-gradient-dark">Process</span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-charcoal-900">
+            Our <span className="font-cormorant italic font-normal text-gold-600">Process</span>
           </h2>
 
-          <p className="text-xs sm:text-sm text-sand-200/80 font-sans max-w-xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm text-charcoal-600 font-sans max-w-xl mx-auto leading-relaxed">
             Transparent, artisan-led commissioning from your first sketch to safe arrival at your doorstep.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function OurProcessSection() {
             return (
               <div
                 key={st.num}
-                className="px-5 sm:px-6 py-4.5 sm:py-5 rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.07] to-white/[0.02] hover:border-gold-400/60 hover:shadow-xl hover:scale-[1.01] backdrop-blur-md transition-all duration-300 flex flex-col justify-between group"
+                className="px-5 sm:px-6 py-4.5 sm:py-5 rounded-2xl border border-gold-500/25 bg-[#181B22] hover:border-gold-400/80 hover:shadow-xl hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between group shadow-md"
               >
                 <div className="space-y-2.5 sm:space-y-3">
                   <div className="flex items-center justify-between">
@@ -87,14 +87,14 @@ export default function OurProcessSection() {
                     {st.title}
                   </h3>
 
-                  <p className="text-xs text-sand-200/80 leading-relaxed font-sans">
+                  <p className="text-xs text-sand-200/85 leading-relaxed font-sans">
                     {st.desc}
                   </p>
                 </div>
 
                 <div className="pt-3 mt-3.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-sand-400/70">
                   <span>Stage {st.num} of 06</span>
-                  <span className="text-gold-400/80 text-[10px] uppercase tracking-wider font-semibold group-hover:text-gold-300 transition-colors">
+                  <span className="text-gold-400/90 text-[10px] uppercase tracking-wider font-semibold group-hover:text-gold-300 transition-colors">
                     Artisan Verified
                   </span>
                 </div>
