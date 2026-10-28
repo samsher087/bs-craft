@@ -5,7 +5,7 @@ import { getProducts } from '../../data/products';
 import { buildProductWhatsAppUrl, getSiteConfig } from '../../config/siteConfig';
 
 export default function BestsellingModels() {
-  const products = getProducts().filter(p => p.featured).slice(0, 20);
+  const products = getProducts().filter(p => p.featured && p.category !== 'Tajiya');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
   const [siteConfig, setSiteConfig] = useState(getSiteConfig());
 

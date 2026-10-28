@@ -181,6 +181,88 @@ export const initialProducts = [
     ]
   },
   {
+    id: "prod-arch-royal-blue-velvet",
+    slug: "royal-blue-velvet-gilded-scalloped-arch-frame",
+    sku: "BSC-ARC-BV05",
+    name: "Royal Blue Velvet & Gilded Scalloped Arch Frame",
+    category: "Thermocol Cutting & Fine Jali Work",
+    price: 350,
+    priceDisplay: "₹350 / piece",
+    isStartingPrice: false,
+    originalPrice: 450,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Handcrafted Excellence",
+    shortDesc: "Exquisite multi-foil arched frame handcrafted with pure white thermocol, royal blue velvet column trims, golden bead borders, and scalloped drop jali apertures.",
+    fullDesc: "A regal architectural multi-foil arch frame meticulously handcrafted from high-density architectural thermocol. Features plush royal blue velvet column accents bordered with golden beaded piping, a tiered multi-foil cusped Mughal archway, and dual flanking window niches with teardrop jali fretwork. Perfect for sanctum altars, Tajiya stage framing, festive backdrops, and ambient backlighting.",
+    dimensions: "Height: 20 inches | Width: 18 inches | Depth: 2.5 inches",
+    height: "20 inches",
+    width: "18 inches",
+    depth: "2.5 inches",
+    material: "High-density structural thermocol, premium royal blue velvet, gold bead piping, precision laser-grade hand cutwork",
+    colorFinish: "Pure White, Royal Blue Velvet & Gilded Gold Beaded Trims",
+    lighting: "Compatible with warm LED backlight and niche shadow illumination",
+    craftTime: "Ready to Ship / 1–2 Days for Bulk",
+    packaging: "Shockproof bubble-wrap and rigid protective box casing with corner cushions",
+    image: "/assets/images/arch_royal_blue_velvet_frame.jpg",
+    images: [
+      "/assets/images/arch_royal_blue_velvet_frame.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "",
+    featured: true,
+    sizeOptions: [
+      { name: "Standard Frame (20 x 18 in)", dimensions: "20 x 18 x 2.5 in", price: 350 },
+      { name: "Pair of 2 Frames", dimensions: "20 x 18 in each", price: 680 },
+      { name: "Grand Scale (30 x 26 in)", dimensions: "30 x 26 x 3 in", price: 750 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Frame", price: 0 },
+      { name: "Concealed Warm Golden Backlight Kit", price: 150 }
+    ]
+  },
+  {
+    id: "prod-facade-shahi-darbar-golden-dome",
+    slug: "shahi-darbar-gateway-facade-golden-domes",
+    sku: "BSC-FAC-SD06",
+    name: "Shahi Darbar Gateway Facade with Golden Domes",
+    category: "Decorative Models",
+    price: 550,
+    priceDisplay: "₹550 / piece",
+    isStartingPrice: false,
+    originalPrice: 700,
+    availability: "In Studio Stock / Ready to Ship",
+    customizable: true,
+    tag: "Royal Heritage",
+    shortDesc: "Imperial palace entrance facade featuring grand central arch, gilded floral relief columns, 4 pink lace window niches, and upper blue galleries with gleaming golden domes.",
+    fullDesc: "An imperial miniature architectural gateway inspired by royal Mughal Darbars and historic palace sanctums. Handcrafted from pristine virgin thermocol board with 24k gilded embossed vertical columns, a grand central portal arch, four arched lower windows fitted with delicate pink floral lace screens, and two upper clerestory viewing balconies set against deep royal blue velvet with four glistening gilded melon domes. Ideal for Tajiya stages, festive sanctums, display dioramas, and sacred exhibition backdrops.",
+    dimensions: "Height: 22 inches | Width: 24 inches | Depth: 3 inches",
+    height: "22 inches",
+    width: "24 inches",
+    depth: "3 inches",
+    material: "High-density structural thermocol, gilded floral relief moldings, pink lace fabric, velvet backing, golden dome cupolas",
+    colorFinish: "Pure White, 24k Gilded Accents, Royal Blue Velvet & Rose Pink Lace",
+    lighting: "Concealed multi-channel LED lighting ready for arch and dome illumination",
+    craftTime: "Ready to Ship / 2–3 Days for Custom Orders",
+    packaging: "Multi-layer cushioned transit pack with rigid protective carton casing",
+    image: "/assets/images/arch_shahi_darbar_golden_dome_facade.jpg",
+    images: [
+      "/assets/images/arch_shahi_darbar_golden_dome_facade.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "",
+    featured: true,
+    sizeOptions: [
+      { name: "Standard Facade (22 x 24 in)", dimensions: "22 x 24 x 3 in", price: 550 },
+      { name: "Large Stage Facade (32 x 36 in)", dimensions: "32 x 36 x 4 in", price: 1100 },
+      { name: "Monumental Diorama (42 x 48 in)", dimensions: "42 x 48 x 5 in", price: 2200 }
+    ],
+    lightingOptions: [
+      { name: "Standard Unlit Facade", price: 0 },
+      { name: "Full Ambient Arch & Dome Backlight Kit", price: 220 }
+    ]
+  },
+  {
     id: "prod-minar-emerald-green-glitter",
     slug: "emerald-green-glitter-royal-minar",
     sku: "BSC-MNR-EG01",
@@ -1058,47 +1140,6 @@ export const initialProducts = [
     ]
   },
   {
-    id: "prod-tajiya-golden-dome-lattice",
-    slug: "golden-dome-diamond-lattice-tajiya",
-    sku: "BSC-TAJ-GD07",
-    name: "Golden Dome Diamond Lattice Tajiya",
-    category: "Tajiya",
-    price: 52000,
-    priceDisplay: "Starting at ₹52,000",
-    isStartingPrice: true,
-    originalPrice: 65000,
-    availability: "Made to Order · All India Delivery",
-    customizable: true,
-    tag: "Handcrafted Excellence",
-    shortDesc: "Striking ivory white and gilded gold Tajiya featuring fluted central dome, 4 golden minarets with crystal band detailing, and illuminated diamond lattice screens.",
-    fullDesc: "A magnificent devotion-inspired creation by Being Samsher Crafting. Showcases a sculpted gilded central dome flanked by four ornate golden minars with decorative jeweled bands, warm interior illumination glowing through delicate diamond cutwork jali screens, and a multi-tiered pure white podium plinth. Perfect for Mawlid, Naat, Islamic exhibitions, and luxury sanctums.",
-    dimensions: "Base: 3.5 x 3.5 Feet | Height: 8.5 Feet (Customizable)",
-    height: "8.5 Feet",
-    width: "3.5 Feet",
-    depth: "3.5 Feet",
-    material: "High-density thermocol fretwork, 24k gold leaf foil, diamond cut acrylic lattices, wooden support base",
-    colorFinish: "Pure Ivory White & 24k Gilded Gold with Crystal Bands",
-    lighting: "Concealed warm white/golden interior glow radiating through diamond lattices",
-    craftTime: "15 to 22 Days",
-    packaging: "Heavy-duty reinforced wooden freight crate with protective foam",
-    image: "/assets/images/tajiya_golden_dome_lattice.jpg",
-    images: [
-      "/assets/images/tajiya_golden_dome_lattice.jpg",
-      "/assets/images/workshop_jali_cutting.jpg"
-    ],
-    videoUrl: "",
-    featured: true,
-    sizeOptions: [
-      { name: "5.5 Feet Height", dimensions: "30 x 30 x 66 in", price: 35000 },
-      { name: "8.5 Feet Height", dimensions: "42 x 42 x 102 in", price: 49000 },
-      { name: "11 Feet Monumental Scale", dimensions: "52 x 52 x 132 in", price: 70000 }
-    ],
-    lightingOptions: [
-      { name: "Concealed Warm Pavilion Glow", price: 0 },
-      { name: "Dual-Mode Wireless Dimmer System", price: 2400 }
-    ]
-  },
-  {
     id: "prod-tajiya-royal-golden-darbar",
     slug: "royal-golden-darbar-emerald-arcade-tajiya",
     sku: "BSC-TAJ-GD08",
@@ -1551,31 +1592,31 @@ export const initialProducts = [
   },
   {
     id: "prod-tajiya-imperial-darbar-edition",
-    slug: "imperial-darbar-edition-sunset-tajiya",
+    slug: "royal-rose-pink-gold-illuminated-palace-tajiya",
     sku: "BSC-TAJ-ID20",
-    name: "Imperial Darbar Edition Pavilion Tajiya",
+    name: "Royal Rose Pink & Gold Illuminated Palace Tajiya",
     category: "Tajiya",
     price: 55000,
-    priceDisplay: "Starting at 55,000",
+    priceDisplay: "Starting at ₹55,000",
     isStartingPrice: true,
     originalPrice: 61000,
     availability: "Made to Order · All India Delivery",
     customizable: true,
-    tag: "Bespoke Heritage",
-    shortDesc: "Imperial bespoke edition of the grand sunset pavilion Tajiya featuring multi-tiered golden dome niches, vibrant illumination, and custom commission specifications for festivals and exhibitions.",
-    fullDesc: "The official Being Samsher signature Darbar edition of the illuminated sunset pavilion Tajiya. Handcrafted on commission with custom dimensions, reinforced framing, and museum-grade fretwork. Features multi-tier gold carved kalash domes in lighted shadow boxes, illuminated pink and warm gold arched pavilions, diamond-cut acoustic jali screens, and high-lumen 360-degree perimeter track lighting. Direct workshop customization and door-to-door freight dispatch across India.",
+    tag: "Illuminated Masterpiece",
+    shortDesc: "Royal rose pink & gold palace shrine featuring multi-tiered glowing arched pavilions, kalash pinnacle dome, intricate floral fretwork, and celestial nighttime illumination.",
+    fullDesc: "The official Being Samsher signature Darbar edition of the illuminated royal rose pink and gold palace Tajiya. Handcrafted on commission with custom dimensions, reinforced framing, and museum-grade fretwork. Features multi-tier gold carved kalash domes in lighted shadow boxes, illuminated pink and warm gold arched pavilions, diamond-cut acoustic jali screens, miniature floral bouquets, and high-lumen 360-degree perimeter track lighting. Direct workshop customization and door-to-door freight dispatch across India.",
     dimensions: "Base: 5 x 5 Feet | Height: 11 Feet (Customizable)",
     height: "11 Feet",
     width: "5 Feet",
     depth: "5 Feet",
     material: "High-density reinforced thermocol, 24k gold leaf foil, custom LED circuitry, heavy timber load-bearing chassis",
-    colorFinish: "Ivory White, 24k Gold Accents & Dual Warm/Magenta Illumination",
+    colorFinish: "Rose Pink, 24k Gold Accents & Dual Warm Ambient Illumination",
     lighting: "Complete exhibition-grade multi-channel LED lighting with concealed wiring",
     craftTime: "25 to 35 Days",
     packaging: "Heavy-duty timber transit crate with corner steel strapping and foam cushioning",
-    image: "/assets/images/tajiya_sunset_pavilion_booking.jpg",
+    image: "/assets/images/tajiya_rose_pink_gold_illuminated_palace.jpg",
     images: [
-      "/assets/images/tajiya_sunset_pavilion_booking.jpg",
+      "/assets/images/tajiya_rose_pink_gold_illuminated_palace.jpg",
       "/assets/images/tajiya_sunset_pavilion_clean.jpg",
       "/assets/images/workshop_jali_cutting.jpg"
     ],
@@ -1589,6 +1630,47 @@ export const initialProducts = [
     lightingOptions: [
       { name: "Full Exhibition Light Circuit", price: 0 },
       { name: "Heavy-Duty 12V Battery & Remote Control Kit", price: 4200 }
+    ]
+  },
+  {
+    id: "prod-tajiya-ya-hussain-emerald-white-darbar",
+    slug: "ya-hussain-emerald-ivory-heritage-tajiya",
+    sku: "BSC-TAJ-YH21",
+    name: "Ya-Hussain Emerald & Ivory Handcrafted Heritage Tajiya",
+    category: "Tajiya",
+    price: 48000,
+    priceDisplay: "Starting at ₹48,000",
+    isStartingPrice: true,
+    originalPrice: 56000,
+    availability: "Made to Order · All India Delivery",
+    customizable: true,
+    tag: "Sacred Masterpiece",
+    shortDesc: "Majestic multi-tiered white architectural shrine crowned with an emerald ribbed dome, 24k gold spire finial, Ya-Hussain calligraphy crest, floral wheel jali lattice, and decorative golden chain railing.",
+    fullDesc: "An iconic devotional masterpiece commemorating sacred heritage with exquisite craftsmanship. Features a brilliant emerald green fluted dome crowned with an ornamental gilded kalash pinnacle, a prominent illuminated 'یا حسین' (Ya Hussain) calligraphic plaque in royal blue and gold, multi-tier scalloped arches, hand-perforated arabesque wheel jalis, miniature flanking white domes with golden cupolas, scalloped green fringe molding, and perimeter golden chain balustrades. Built with high-density architectural thermocol and reinforced framework for exhibitions, Mawlid, and sacred ceremonies across India.",
+    dimensions: "Base: 4 x 4 Feet | Height: 9.5 Feet (Customizable)",
+    height: "9.5 Feet",
+    width: "4 Feet",
+    depth: "4 Feet",
+    material: "High-density virgin architectural thermocol, 24k gold leaf foil accents, emerald green lacquer, brass finials, timber support chassis",
+    colorFinish: "Pristine Ivory White, Emerald Green & 24k Gilded Accents",
+    lighting: "Concealed warm internal backlighting for calligraphy crest, arched niches & lattice windows",
+    craftTime: "18 to 25 Days",
+    packaging: "Reinforced multi-sectional wooden freight crate with high-density shock foam cushioning",
+    image: "/assets/images/tajiya_ya_hussain_emerald_white_darbar.jpg",
+    images: [
+      "/assets/images/tajiya_ya_hussain_emerald_white_darbar.jpg",
+      "/assets/images/workshop_jali_cutting.jpg"
+    ],
+    videoUrl: "",
+    featured: true,
+    sizeOptions: [
+      { name: "6.5 Feet Height", dimensions: "36 x 36 x 78 in", price: 38000 },
+      { name: "9.5 Feet Height (Standard)", dimensions: "48 x 48 x 114 in", price: 48000 },
+      { name: "12+ Feet Monumental Sanctum", dimensions: "60 x 60 x 144 in", price: 68000 }
+    ],
+    lightingOptions: [
+      { name: "Integrated Warm Calligraphy & Niche Illumination", price: 0 },
+      { name: "Dual-Mode Wireless Remote LED Control Kit", price: 3200 }
     ]
   },
   {
@@ -1760,7 +1842,7 @@ export const initialProducts = [
 // Helper functions synced with localStorage for instant Admin Updates
 export const getProducts = () => {
   try {
-    const saved = localStorage.getItem('bsc_products_v23') || localStorage.getItem('bsc_products_v22') || localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
+    const saved = localStorage.getItem('bsc_products_v26') || localStorage.getItem('bsc_products_v25') || localStorage.getItem('bsc_products_v24') || localStorage.getItem('bsc_products_v23') || localStorage.getItem('bsc_products_v22') || localStorage.getItem('bsc_products_v21') || localStorage.getItem('bsc_products_v20');
     if (saved) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
@@ -1768,19 +1850,22 @@ export const getProducts = () => {
         const cleaned = parsed.filter(p => {
           const name = (p.name || '').toLowerCase().trim();
           const slug = (p.slug || '').toLowerCase().trim();
-          const isRoyalBlueTajiya =
-            name.includes('royal blue tajiya') ||
-            slug.includes('royal-blue-tajiya') ||
-            (name.includes('royal blue') && (p.category === 'Tajiya' || p.category === 'tajiya'));
-          return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
+          const isLegacyRoyalBlueTajiya =
+            name === 'royal blue tajiya' ||
+            slug === 'royal-blue-tajiya';
+          return !isLegacyRoyalBlueTajiya &&
+            p.id !== 'prod-tajiya-sunset-pavilion-pink-gold' &&
+            p.id !== 'prod-tajiya-golden-dome-lattice';
         });
 
-        // Ensure the 4 jali products are at front, followed immediately by the 4 authentic minar models
+        // Ensure the 4 jali products are at front, followed immediately by the 2 new architectural frames, then the 4 authentic minar models
         const premierIds = [
           "prod-jali-ya-ali",
           "prod-jali-chand-tara",
           "prod-jali-diamond-lattice",
           "prod-jali-om-sacred",
+          "prod-arch-royal-blue-velvet",
+          "prod-facade-shahi-darbar-golden-dome",
           "prod-minar-emerald-green-glitter",
           "prod-minar-royal-blue-gold-glitter",
           "prod-minar-royal-blue-white-fluted",
@@ -1798,21 +1883,21 @@ export const getProducts = () => {
           }
         });
 
-        // Ensure newly defined initial products (including 20 authentic Tajiyas & new Minars) exist in saved products
+        // Ensure newly defined initial products exist in saved products
         initialProducts.forEach(initP => {
           const existingIdx = cleaned.findIndex(p => p.id === initP.id || p.slug === initP.slug);
           if (existingIdx === -1) {
             cleaned.push(initP);
             modified = true;
-          } else if (initP.id.startsWith('prod-tajiya-') || initP.id.startsWith('prod-minar-')) {
+          } else if (initP.id.startsWith('prod-tajiya-') || initP.id.startsWith('prod-minar-') || initP.id.startsWith('prod-arch-') || initP.id.startsWith('prod-facade-')) {
             // Update image & details to latest authentic specifications
             cleaned[existingIdx] = { ...cleaned[existingIdx], ...initP };
             modified = true;
           }
         });
 
-        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v23')) {
-          localStorage.setItem('bsc_products_v23', JSON.stringify(cleaned));
+        if (modified || cleaned.length !== parsed.length || !localStorage.getItem('bsc_products_v26')) {
+          localStorage.setItem('bsc_products_v26', JSON.stringify(cleaned));
         }
         return cleaned;
       }
@@ -1823,11 +1908,12 @@ export const getProducts = () => {
   return initialProducts.filter(p => {
     const name = (p.name || '').toLowerCase().trim();
     const slug = (p.slug || '').toLowerCase().trim();
-    const isRoyalBlueTajiya =
-      name.includes('royal blue tajiya') ||
-      slug.includes('royal-blue-tajiya') ||
-      (name.includes('royal blue') && (p.category === 'Tajiya' || p.category === 'tajiya'));
-    return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
+    const isLegacyRoyalBlueTajiya =
+      name === 'royal blue tajiya' ||
+      slug === 'royal-blue-tajiya';
+    return !isLegacyRoyalBlueTajiya &&
+      p.id !== 'prod-tajiya-sunset-pavilion-pink-gold' &&
+      p.id !== 'prod-tajiya-golden-dome-lattice';
   });
 };
 
@@ -1854,13 +1940,14 @@ export const saveProducts = (productsList) => {
     const cleaned = (productsList || []).filter(p => {
       const name = (p.name || '').toLowerCase().trim();
       const slug = (p.slug || '').toLowerCase().trim();
-      const isRoyalBlueTajiya =
-        name.includes('royal blue tajiya') ||
-        slug.includes('royal-blue-tajiya') ||
-        (name.includes('royal blue') && (p.category === 'Tajiya' || p.category === 'tajiya'));
-      return !isRoyalBlueTajiya && p.id !== 'prod-tajiya-sunset-pavilion-pink-gold';
+      const isLegacyRoyalBlueTajiya =
+        name === 'royal blue tajiya' ||
+        slug === 'royal-blue-tajiya';
+      return !isLegacyRoyalBlueTajiya &&
+        p.id !== 'prod-tajiya-sunset-pavilion-pink-gold' &&
+        p.id !== 'prod-tajiya-golden-dome-lattice';
     });
-    localStorage.setItem('bsc_products_v23', JSON.stringify(cleaned));
+    localStorage.setItem('bsc_products_v26', JSON.stringify(cleaned));
     window.dispatchEvent(new Event('products-updated'));
     return true;
   } catch (e) {
@@ -1880,7 +1967,6 @@ export const getTajiyaProducts = () => {
     "prod-tajiya-emerald-gold-shahi",
     "prod-tajiya-imperial-green",
     "prod-tajiya-quad-minar-dome",
-    "prod-tajiya-golden-dome-lattice",
     "prod-tajiya-royal-golden-darbar",
     "prod-tajiya-black-gold-procession",
     "prod-tajiya-royal-blue-brick-palace",
@@ -1892,12 +1978,14 @@ export const getTajiyaProducts = () => {
     "prod-tajiya-emerald-filigree-procession",
     "prod-tajiya-red-dome-emerald-glow",
     "prod-tajiya-royal-blue-gold-palace",
-    "prod-tajiya-imperial-darbar-edition"
+    "prod-tajiya-grand-shahi",
+    "prod-tajiya-imperial-darbar-edition",
+    "prod-tajiya-ya-hussain-emerald-white-darbar"
   ];
   const list = premierTajiyaIds.map(id => all.find(p => p.id === id)).filter(Boolean);
-  if (list.length === premierTajiyaIds.length) return list;
-  const tajiyas = all.filter(p => p.category === 'Tajiya');
-  return tajiyas.length > 0 ? tajiyas : initialProducts.filter(p => p.category === 'Tajiya');
+  const remaining = all.filter(p => p.category === 'Tajiya' && !premierTajiyaIds.includes(p.id));
+  const fullList = [...list, ...remaining];
+  return fullList.length > 0 ? fullList : initialProducts.filter(p => p.category === 'Tajiya');
 };
 
 export const getProductBySlug = (slug) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUp, MapPin, Phone, Mail, MessageCircle, Lock } from 'lucide-react';
-import { InstagramIcon, YoutubeIcon, FacebookIcon } from './SocialIcons';
+import { FacebookColorIcon, InstagramColorIcon, YoutubeColorIcon } from './SocialIcons';
 import { getSiteConfig } from '../config/siteConfig';
 
 export default function Footer({ onOpenPolicy }) {
@@ -71,47 +71,46 @@ export default function Footer({ onOpenPolicy }) {
               Custom handcrafted architectural models, Tajiya, Gumbad, Minar, thermocol cutting, and fine jali work. Based in Jharkhand, delivering across India.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-2.5 pt-2">
-              <a
-                href={siteConfig.instagramUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-white flex items-center justify-center transition-all"
-                aria-label="Instagram"
-              >
-                <InstagramIcon className="w-3.5 h-3.5" />
-              </a>
+            {/* Get In Touch - Compact Squircle Social Icon Cards */}
+            <div className="pt-1.5 space-y-1.5">
+              <span className="text-[11px] font-semibold text-sand-200 tracking-wide block uppercase">
+                Get In Touch
+              </span>
 
-              <a
-                href={siteConfig.youtubeUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-white flex items-center justify-center transition-all"
-                aria-label="YouTube"
-              >
-                <YoutubeIcon className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex items-center gap-2">
+                <a
+                  href={siteConfig.facebookUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#0f172a]/90 hover:bg-[#1e293b] border border-white/10 hover:border-white/30 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm shadow-black/40 group cursor-pointer"
+                  aria-label="Facebook"
+                  title="Facebook"
+                >
+                  <FacebookColorIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
+                </a>
 
-              <a
-                href={siteConfig.facebookUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold-400 text-gold-300 hover:text-white flex items-center justify-center transition-all"
-                aria-label="Facebook"
-              >
-                <FacebookIcon className="w-3.5 h-3.5" />
-              </a>
+                <a
+                  href={siteConfig.instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#0f172a]/90 hover:bg-[#1e293b] border border-white/10 hover:border-white/30 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm shadow-black/40 group cursor-pointer"
+                  aria-label="Instagram"
+                  title="Instagram"
+                >
+                  <InstagramColorIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
+                </a>
 
-              <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}`}
-                target="_blank"
-                rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 hover:border-gold-400 text-emerald-400 hover:text-emerald-300 flex items-center justify-center transition-all"
-                aria-label="WhatsApp"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-              </a>
+                <a
+                  href={siteConfig.youtubeUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-7 h-7 rounded-lg bg-[#0f172a]/90 hover:bg-[#1e293b] border border-white/10 hover:border-white/30 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm shadow-black/40 group cursor-pointer"
+                  aria-label="YouTube"
+                  title="YouTube"
+                >
+                  <YoutubeColorIcon className="w-3.5 h-3.5 transition-transform duration-300 group-hover:scale-110" />
+                </a>
+              </div>
             </div>
           </div>
 
